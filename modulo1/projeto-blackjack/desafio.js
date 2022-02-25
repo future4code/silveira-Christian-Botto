@@ -47,20 +47,14 @@ if(confirm("Quer iniciar uma nova rodada?")) {
    var sumArrayComp = cardComp1.valor + cardComp2.valor  // Ou seja, caso o usuário aperte cancel na primeira rodada
 
    while (confirm(`Suas cartas são ${textCardsUser}. A carta revelada do computador é ${cardComp1.texto} `)) {
-      const cardCompAux = comprarCarta();
-      cardUserArray = cardUserArray.concat(cardCompAux) // Concatena as arrays
+      const cardUserAux = comprarCarta();
+      cardUserArray = cardUserArray.concat(cardUserAux) // Concatena as arrays
          // Criar uma nova array apenas com as strings dos textos usando map (de novo):
          var textCardsUser = cardUserArray.map((item, index, array) => {
             return item.texto
       }) 
-      // Calcula somatório das cartas
-      // Criar uma nova array apenas com os valores das cartas:
-         var valueCardsUser = cardUserArray.map((item, index, array) => {
-            return item.valor
-      })
-      for(let ii = 2; ii < valueCardsUser.length  ; ii++){
-         sumArrayUser = sumArrayUser + valueCardsUser[ii] 
-     } 
+      // Calcula somatório das cartas      
+      sumArrayUser = sumArrayUser + cardUserAux.valor 
      // Vamos comparar se é menor ou igual a 21
       if (sumArrayUser >21) {
          break
