@@ -10,12 +10,26 @@ function retornaTamanhoArray(array) {
 
 // EXERCÍCIO 02
 function retornaArrayInvertido(array) {
-  
+    return array.reverse()
+    // Desafio
+    // let arrayAux2 = array.slice()
+    //     var jj = array.length
+    // for (var ii = 0; ii < array.length; ii++) {
+    //     array[ii] = arrayAux2[jj]
+    //     jj = jj-1
+    //   }
+    //   return array
 }
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-  
+    // Desafio
+    let arrayAux3 = array.slice()
+    for (var ii = 0; ii < array.length; ii++) {
+        if (array[ii] <arrayAux3[ii])
+        array[ii] = arrayAux3[ii]
+      }
+      return array
 }
 
 // EXERCÍCIO 04
