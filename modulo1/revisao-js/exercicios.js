@@ -23,18 +23,33 @@ function retornaArrayInvertido(array) {
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-    // Desafio
-    let arrayAux3 = array.slice()
-    for (var ii = 0; ii < array.length; ii++) {
-        if (array[ii] <arrayAux3[ii])
-        array[ii] = arrayAux3[ii]
-      }
-      return array
+    array = array.sort((a, b) => a - b);
+//     // Desafio
+//     var arrayFinal3 = []
+//     var arrayAux3 = array.slice()
+//     for (var ii = 0; ii < arrayAux3.length; ii++) {
+//         var minValue = array[0]
+//         for (var ii = 0; ii < array.length; ii++) {
+//             if (minValue > array[ii]){
+//                 minValue = array[ii]
+//             }
+//             array.splice(ii,1)
+//         }
+//         arrayFinal3.push(minValue)
+//     }
+//       return arrayFinal3 
+    return array
 }
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
-  
+    let arrayAux4 = []
+    for (var ii = 0; ii < array.length; ii++){
+        if (array[ii]%2 === 0){
+            arrayAux4.push(array[ii])
+        }
+    }
+  return arrayAux4
 }
 
 // EXERCÍCIO 05
