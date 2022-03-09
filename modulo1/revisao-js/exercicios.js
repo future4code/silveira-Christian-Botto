@@ -10,35 +10,37 @@ function retornaTamanhoArray(array) {
 
 // EXERCÍCIO 02
 function retornaArrayInvertido(array) {
-    return array.reverse()
-    // Desafio
-    // let arrayAux2 = array.slice()
-    //     var jj = array.length
-    // for (var ii = 0; ii < array.length; ii++) {
-    //     array[ii] = arrayAux2[jj]
-    //     jj = jj-1
-    //   }
-    //   return array
+    // Usando reverse:
+    // return array.reverse() 
+    // Sem usar reverse (Desafio):
+    let arrayAux2 = array.slice()
+        var jj = arrayAux2.length -1
+        // console.log(jj)
+    for (var ii = 0; ii < array.length; ii++) {
+        array[ii] = arrayAux2[jj]
+        jj = jj-1
+      }
+      return array
 }
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-    array = array.sort((a, b) => a - b);
-//     // Desafio
-//     var arrayFinal3 = []
-//     var arrayAux3 = array.slice()
-//     for (var ii = 0; ii < arrayAux3.length; ii++) {
-//         var minValue = array[0]
-//         for (var ii = 0; ii < array.length; ii++) {
-//             if (minValue > array[ii]){
-//                 minValue = array[ii]
-//             }
-//             array.splice(ii,1)
-//         }
-//         arrayFinal3.push(minValue)
-//     }
-//       return arrayFinal3 
-    return array
+    // Usando sort:
+    // return array.sort((a, b) => a - b);
+    // Sem usar sort (Desafio):
+    var arrayFinal3 = []
+    var arrayAux3 = array.slice()
+    for (var ii = 0; ii < arrayAux3.length; ii++) {
+        var minValue = array[0]
+        for (var ii = 0; ii < array.length; ii++) {
+            if (minValue > array[ii]){
+                minValue = array[ii]
+            }
+            array.splice(ii,1)
+        }
+        arrayFinal3.push(minValue)
+    }
+      return arrayFinal3 
 }
 
 // EXERCÍCIO 04
@@ -198,35 +200,45 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {
 
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {
-    // function sortDate(a, b) {
-    //     if ( a.dataDaConsulta < b.dataDaConsulta){
-    //       return -1;
-    //     }
-    //     if ( a.dataDaConsulta > b.dataDaConsulta){
-    //       return 1;
-    //     }
-    //     return 0;
-    //   }
-      
-    //   consultas.sort(sortDate);
+    // Pegar as datas e separá-las por DD, MM, YYYY
+    // let day =[]
+    // var month =[]
+    // var year =[]
 
-    // const consultasData = consultas.sort((a,b) => b.dataDaConsulta -a.dataDaConsulta)
-    var day =[0]
-    var month =[0]
-    var year =[0]
+    // for (var ii = 0; ii < consultas.length; ii++){
+    //     var numAux = consultas[ii].dataDaConsulta
+    //     var dayAux = Number(numAux.slice(0,2));  day.push(dayAux) 
+    //     var monthAux = Number(numAux.slice(3,5));  month.push(monthAux)
+    //     var yearAux = Number(numAux.slice(6,10));  year.push(yearAux)
+    // }
 
-    for (var ii = 0; ii < consultas.length; ii++){
-        var numAux = consultas[ii].dataDaConsulta
-        // var dayAux = Number(numAux.slice(0,2)); day = day.push(dayAux) 
-        // var monthAux = Number(numAux.slice(3,5)); month = month.push(monthAux)
-        // var yearAux = Number(numAux.slice(6,10)); year = year.push(yearAux)
-        var dayAux = numAux.slice(0,2); day = day.push(dayAux) 
-        var monthAux = numAux.slice(3,5); month = month.push(monthAux)
-        var yearAux = numAux.slice(6,10); year = year.push(yearAux)
-    }
+    // function sortedArray(array) {
+    //     array = array.sort((a, b) => a - b);    
+    // return array    
+    // }
+
+    // // Organizar as datas por ordem crescente
+    // var daySorted = sortedArray(day)
+    // var monthSorted = sortedArray(month)
+    // var yearSorted = sortedArray(year)
+
+    // // Indexar datas organizadas com não organizadas
+    // for (var ii = 0; ii < consultas.length; ii++){
+    //     var numAux = consultas[ii].dataDaConsulta
+    //     var dayAux = Number(numAux.slice(0,2));  day.push(dayAux) 
+    //     var monthAux = Number(numAux.slice(3,5));  month.push(monthAux)
+    //     var yearAux = Number(numAux.slice(6,10));  year.push(yearAux)
+    // }
+
+    aaa = consultas.sort(function(a,b) {
+        let x = new Date(a.dataDaConsulta).toLocaleDateString(),
+         y = new Date(b.dataDaConsulta).toLocaleDateString()
+        return x-y;
+    })
 
 
-    return year
+
+return aaa
 }
 
 // revisar:desafio 2 e desafio 3
