@@ -1,5 +1,5 @@
-``
-`function calculaSalario(qtdeCarrosVendidos, valorTotalVendas) {
+```
+function calculaSalario(qtdeCarrosVendidos, valorTotalVendas) {
  // Escreva seu código aqui
  let base = 2000
  let percent = 0.05

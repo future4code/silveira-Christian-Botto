@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
     <head>
         <style>
         body {
@@ -12,11 +12,23 @@
           font-size: 80px;
           font-family: Helvetica;
         }
+
+        h2 {
+          color: rgb(16, 5, 54);
+          font-size: 45px;
+          font-family: Helvetica;
+        }
         
+        h3 {
+          color: rgb(16, 5, 54);
+          font-size: 35px;
+          font-family: Helvetica;
+        }
+
         p {
           font-family: sans-serif;
           text-align: center;
-          font-size: 30px;
+          font-size: 60px;
         }
 
         a {
@@ -24,20 +36,25 @@
           text-align: center;
           font-size: 30px;
         }
+
+        form {
+          color: rgb(14, 6, 41);
+          font-size: 40px;
+          font-family: Helvetica;
+        }
         </style>
   </style>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>NMercadinho do Christian</title>
+    <title>Adicionar Produto</title>
 </head>
 <body>
     <div>
-        <h1>Bem-vind@ ao <em><u>Mercadinho do Christian</u></em>!</h1>
+        <p>Mercadinho do Christian</p>
     </div>
-
+    
     <div>
         <a href="http://127.0.0.1:5500/index.html">Página Inicial</a> &nbsp&nbsp&nbsp&nbsp
         <a href="http://127.0.0.1:5500/ctrl-estoque.html">Controle de Estoque</a> &nbsp&nbsp&nbsp&nbsp
@@ -47,29 +64,39 @@
         <a href="http://127.0.0.1:5500/historico.html">Histórico de Vendas</a>
     </div>
 
-    <div>
-        <p>Aproveite nossos produtos orgânicos!</p>
-    </div>
-
     
+    <h2>Para uso do funcionário:</h2>
+    <h3>Adicione abaixo os produtos que estão sendo vendidos</h3>
+    <form action="">
+        <label for="produtos">Escolha os produtos:</label>
+  <select id="cars" name="cars">
+    <option value="arroz">Arroz</option>
+    <option value="feijao">Feijão</option>
+    <option value="macarrao">Macarrão</option>
+    <option value="farinha">Farinha</option>
+    <option value="cocacola">Coca-Cola</option>
+  </select>
 
-    <div>
-        <!-- ADICIONAR INFORMAÇOES SOBRE SUA LOJINHA -->
-    </div>
-
-    <div>
-        <p>Siga-nos nas redes sociais!</p>
-
-        <div>
-            <img src="img/fb.png"  width="200" height="200" />
-            <img src="img/insta.png"  width="200" height="200" />
+        <div class="form-add">
+            <!-- Adicione ao type do botão abaixo o valor para que ele submeta o formulário -->
+            <button type="submit">Adicionar</button>
         </div>
-    </div>
+
+
+    </form>
+
 </body>
 
+<div>
+    <p>Opções de pagamento:</p>
+
+    <div>
+        <img src="img/master.png"  width="200" height="200" />
+        <img src="img/visa.png"  width="400" height="200" />
+    </div>
+</div>
 <footer>
     <p style="color:rgb(165, 13, 13);font-size:30px;">Site criado por Christian</p>
     <p><a href="mailto:chrsitian@christian.com">chrsitian@christian.com</a></p>
 </footer>
-
 </html>
