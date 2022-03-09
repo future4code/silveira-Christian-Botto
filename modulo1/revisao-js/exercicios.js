@@ -26,21 +26,21 @@ function retornaArrayInvertido(array) {
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
     // Usando sort:
-    // return array.sort((a, b) => a - b);
+    return array.sort((a, b) => a - b);
     // Sem usar sort (Desafio):
-    var arrayFinal3 = []
-    var arrayAux3 = array.slice()
-    for (var ii = 0; ii < arrayAux3.length; ii++) {
-        var minValue = array[0]
-        for (var ii = 0; ii < array.length; ii++) {
-            if (minValue > array[ii]){
-                minValue = array[ii]
-            }
-            array.splice(ii,1)
-        }
-        arrayFinal3.push(minValue)
-    }
-      return arrayFinal3 
+    // var arrayFinal3 = []
+    // var arrayAux3 = array.slice()
+    // for (var ii = 0; ii < arrayAux3.length; ii++) {
+    //     var minValue = array[0]
+    //     for (var ii = 0; ii < array.length; ii++) {
+    //         if (minValue > array[ii]){
+    //             minValue = array[ii]
+    //         }
+    //         array.splice(ii,1)
+    //     }
+    //     arrayFinal3.push(minValue)
+    // }
+    //   return arrayFinal3 
 }
 
 // EXERCÍCIO 04
@@ -164,6 +164,41 @@ function retornaPessoasAutorizadas(pessoas) {
 
 // EXERCÍCIO 13B
 function retornaPessoasNaoAutorizadas(pessoas) {
+    const notGoodToGo1 = pessoas.filter((item, index, array) => {
+        return item.altura < 1.5
+     })
+     const notGoodToGo2 = pessoas.filter((item, index, array) => {
+        return item.idade <= 14
+     })
+     const notGoodToGo3 = pessoas.filter((item, index, array) => {
+        return item.idade > 60
+     })
+
+    
+    //  Concatena todas as arrays que não podem
+    Array.prototype.push.apply(notGoodToGo1,notGoodToGo2)
+    Array.prototype.push.apply(notGoodToGo1,notGoodToGo3)
+    
+    // Snippet de código encontrado na internet para eliminar os casos repetidos
+    function onlyUnique(value, index, self) {
+        return self.indexOf(value) === index;
+    }
+    var unique = notGoodToGo1.filter(onlyUnique);
+
+    // Ordenar por ordem alfabética (similar ao 15A)
+    function sortName13(a, b) {
+        if ( a.nome < b.nome){
+          return -1;
+        }
+        if ( a.nome > b.nome ){
+          return 1;
+        }
+        return 0;
+      }
+      unique.sort(sortName13);
+    // unique.sort((a, b) => (a.nome > b.nome) ? 1 : -1) // Arrow function
+
+    return unique
     
 }
 
@@ -198,7 +233,7 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {
     return consultas  
 }
 
-// EXERCÍCIO 15B
+// EXERCÍCIO 15B // Não consegui terminar
 function retornaArrayOrdenadoPorData(consultas) {
     // Pegar as datas e separá-las por DD, MM, YYYY
     // let day =[]
@@ -235,9 +270,6 @@ function retornaArrayOrdenadoPorData(consultas) {
          y = new Date(b.dataDaConsulta).toLocaleDateString()
         return x-y;
     })
-
-
-
 return aaa
 }
 
