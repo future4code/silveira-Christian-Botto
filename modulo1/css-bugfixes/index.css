@@ -69,6 +69,10 @@ div img {
     background-color: rgb(16, 107, 16);
 }
 
+.icone:hover {
+    opacity: 0.3;
+}
+
 .container {
     height: 500px;
     text-align: center;
