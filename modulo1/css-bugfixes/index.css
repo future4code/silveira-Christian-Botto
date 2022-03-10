@@ -50,6 +50,23 @@ div img {
     background-color: #c44f00;
 }
 
+.buy {
+    background-color: #2be780;
+    width: 100px;
+    height: 60px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+}
+
+.buy:active {
+    background-color: white;
+  
+}
+.buy:hover {
+    background-color: rgb(51, 143, 51);
+}
+
 .container {
     height: 500px;
     text-align: center;
