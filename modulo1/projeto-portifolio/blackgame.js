@@ -1,6 +1,7 @@
 // Boas vindas
 console.log("Boas vindas ao jogo de Blackjack!")
 // Começo do jogo
+
 if(confirm("Quer iniciar uma nova rodada?")) {
 	console.log("Certo. Vamos começar uma nova rodada!")
 
