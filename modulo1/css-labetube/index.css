@@ -1,12 +1,54 @@
+/* * {
+   box-sizing: border-box; 
+}  */
+
 header{
     background: rgb(166, 253, 115);
     border: 2px dashed #558104;
         height: 20px;
         text-align: center;
-        font-size: 16px;
+        font-size: 20px;
         margin: auto;
     padding: 15px;
+    font-weight: bold;
 }
+
+.col-1 {width: 25%;}
+  .col-2 {width: 50%;}
+  .col-3 {width: 100%;}
+
+  /* Desktop */
+
+@media screen and (min-device-width : 1201px) { 
+  .col {width: 25%;}
+  }
+  
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+    .col {
+      width: 100%;
+    }
+
+}
+
+ /* @media screen and (min-device-width : 481px) and (max-device-width : 800px) {
+  .col {
+  width: 50%;
+  }      */
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.col {
+  float: left;
+    display: flex;
+    flex-direction: column;
+}
+
 
 .flex-container1 {
     display: flex;
@@ -56,6 +98,19 @@ header{
   }
 
   .Avatar {
-    width:120px;
-    height:120px;
+    width:220px;
+    height:160px;
+  }
+
+  .button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
   }
