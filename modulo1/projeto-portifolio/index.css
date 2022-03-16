@@ -1,0 +1,111 @@
+ /* General */
+
+* {
+    margin: 10;
+    padding: 10;
+}
+
+.head-pages {
+    background: rgba(233, 230, 62, 0.3);
+    border: 2px dashed #558104;
+}
+
+.stripe-one {
+    background: rgba(3, 172, 240, 0.3);
+    border: 2px dashed #3164f0;
+}
+.stripe-two {
+  background: rgba(40, 250, 162, 0.3);
+  border: 2px dashed #109648;
+}
+
+.stripe-three {
+  background: rgba(142, 51, 245, 0.3);
+  border: 2px dashed #43086b;
+}
+
+.stripe-four {
+  background: rgba(221, 119, 52, 0.664);
+  border: 2px dashed #817613;
+}
+
+footer {
+    background: rgba(255, 147, 223, 0.3);
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border: 2px dashed #f69c55;
+        font-size: 18px;
+        font-weight: bold;
+        color: rgb(247, 64, 31);
+
+}
+
+ /* Home */
+
+.column {
+  float: left;
+  width: 32.33%;
+  padding: 5px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+ img { /* Round pic */
+    width:100px;
+  height:100px;
+  object-fit:cover;
+  border-radius:50%;
+}
+
+ /* Contact Me */
+
+input{
+    width: 10%;
+    padding: 3px 2px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+input[id=contact-email]{
+    width: 16%;
+    padding: 3px 2px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+  input[id=contact-subject] {
+    width: 30%;
+    padding: 40px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+.form-font {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(87, 34, 211);
+    text-align: center;
+}
+
+input[type=submit] {
+  background-color: #23629c;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.title {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: rgba(64, 13, 185, 0.849);
+
+}

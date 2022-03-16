@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+
+    <div class="head-pages">
+        <a href="http://127.0.0.1:5500/index.html">Home</a> &nbsp&nbsp&nbsp&nbsp
+        <a href="http://127.0.0.1:5500/contact.html">Contact Me</a> &nbsp&nbsp&nbsp&nbsp
+        <a href="http://127.0.0.1:5500/blackjack.html">Blackjack</a> &nbsp&nbsp&nbsp&nbsp
+        <a href="http://127.0.0.1:5500/guess.html">Guessing Game</a> &nbsp&nbsp&nbsp&nbsp
+    </div>
+</head>
+
+<div class="stripe-one">
+    <div class="title">Guessing Game!</div> 
+    <br>
+This is a project written on javascript.
+The rules are pretty simple: You need to guess which number, between 1 and 100, the computer ramdomly generated.
+If your guess is too low, the computer will tell you to try a higher one.
+Similarly, if your guess is too high, the computer will tell you to try a lower one.
+When you fifnally guess the correct number, the computer will congratulate you and tell you how many guesses did it take for you to guess the correct number.
+Have fun!
+<br> <br>
+
+ 
+    <label for="guess">Guess a number between 0 and 100</label>
+    <input type="number" id="guess">
+    <input type="submit" id="submitGuess" value="Guess!">
+ 
+    <p id="feedback"></p>
+
+      <script>
+         let correctNumberRand = Math.floor((Math.random() * 100) + 1);
+console.log('Correct number:', correctNumberRand)
+let triesR = 1
+        function guessGame() {
+    guessRand = guess.value
+    if (guessRand == correctNumberRand) {
+        // feedback.textContent = ("Congratulations! You guessed the right number ", correctNumberRand, " in just ", triesR,"tries!")
+        // feedback.textContent = (`Congratulations! You guessed the right number ${correctNumber} and in just ${triesR} tries!`)
+        feedback.textContent = "Congratulations! You guessed the right number " + correctNumberRand + " in just " + triesR + " guesses!"
+    } else {
+        if (guessRand > correctNumberRand) {
+            feedback.textContent =("The correct number is lower than your guess.")
+        } else {
+            feedback.textContent =("The correct number is higher than your guess.")
+        }
+    }
+    triesR = triesR + 1} 
+submitGuess.addEventListener('click', guessGame)
+     </script>
+  </div>
+
+  
+<footer>
+    You can find my social media here:
+    &nbsp&nbsp
+    <a href="https://github.com/future4code/silveira-Christian-Botto" target="_blank"><img src="/img/github.png" alt="my-github" style="width:20px;height:20px;"></a>
+    &nbsp&nbsp
+    <a href="https://www.instagram.com/chriss3008/?hl=en" target="_blank"><img src="/img/insta.png" alt="my-github" style="width:20px;height:20px;"></a>
+    &nbsp&nbsp
+    <a href="https://www.linkedin.com/in/christian-cardeal-322370175/" target="_blank"><img src="/img/linkedin.png" alt="my-github" style="width:20px;height:20px;"></a>
+</footer>
+</html>
