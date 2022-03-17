@@ -29,9 +29,12 @@ header{
     .col {
       width: 100%;
     }
+    header{
+      background: rgb(61, 12, 241);
+  }
+
 
 }
-
  /* @media screen and (min-device-width : 481px) and (max-device-width : 800px) {
   .col {
   width: 50%;
