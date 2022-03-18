@@ -1,0 +1,109 @@
+/* General */
+
+* {
+    margin: 20;
+    padding: 20;
+}
+
+
+.icons {
+    width:20px;
+  height:20px;
+}
+
+.real-cake {
+    width:200px;
+  height:200px;
+}
+
+.head-pages{
+    font-size: 23px;
+    font-weight: bold
+}
+
+.stripe-one {
+    background: mediumvioletred;
+    height: 40px
+    /* margin: auto;
+    padding: 15px; */
+}
+
+.stripe-two {
+    background: #f2d0e0;
+    height: 40px
+    /* margin: auto; */
+    padding: 15px;
+    width:60%
+}
+
+footer {
+    background: mediumvioletred;
+        height: 20px;
+        text-align: center;
+        font-size: 16px;
+        margin: auto;
+    padding: 15px;
+}
+
+.flex-container1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .login-button{
+    margin-left: auto;
+  }
+
+  .arrows {
+    margin-left: auto;
+    width:20px;
+  height:20px;
+    }
+
+  .flex-container2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .flex-container3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .flex-container4 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+  }
+
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    background-color: #ffffff;
+    padding: 10px;
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 darkgray;
+    transition: 0.3s;
+    width: 100%;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 darkgray;
+  }
+  
+  .container {
+    padding: 2px 10px;
+  }
+
