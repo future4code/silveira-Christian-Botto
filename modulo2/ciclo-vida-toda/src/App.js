@@ -40,15 +40,17 @@ class App extends React.Component {
 
   componentDidMount() {
     const taskString = localStorage.getItem("tasks")
+    if (taskString) {
       const taksObj = JSON.parse(taskString) 
       this.setState({tarefas: taksObj})
+      }
   };
   
 
   onChangeInput = (event) => {
     this.setState({textoNovaTarefa: event.target.value})
   }
-
+            
   criaTarefa = () => {
      const novaTarefa = {
       id: Date.now(),
