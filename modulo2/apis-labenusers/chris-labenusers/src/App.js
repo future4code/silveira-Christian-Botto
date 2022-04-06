@@ -17,7 +17,7 @@ class App extends React.Component {
 
   // STATES START
   state = {
-    pagina: 3
+    pagina: 1
   };
   // STATES END
 
