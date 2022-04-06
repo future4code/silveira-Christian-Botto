@@ -60,24 +60,9 @@ onChangeInputFiltro = (event) => {
   this.setState({ name2: event.target.value });
 };
 
-editarUsuario = (id) => {
-  const url = `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`
-  const body = {
-    name: this.state.name,
-    email: this.state.email
-  }
-  axios.edit(url, body, {
-      headers: {
-          Authorization: "christian-cardeal-silveira"
-      }
-  })
-      .then((res) => {
-          alert("Usuário(a) deletado")
-          this.pegarUsuarios()
-      })
-      .catch((err) => {
-          alert("Erro")
-      })
+editarUsuario = () => {
+  
+  // tinha que passar a ID do edit atual para o componente 3
 }
 
 
@@ -92,6 +77,7 @@ usuariosfiltrados = () => {
       return (
           <CardUser key={user.id} >
               {user.name}
+              <button onClick={() => this.editarUsuario(user.id)}>Editar</button>
               <button onClick={() => this.deletarUsuario(user.id)}>X</button>
           </CardUser>
       )

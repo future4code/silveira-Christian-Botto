@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Page1 from './components/Page1';
 import Page2 from './components/Page2';
-import axios from 'axios';
+import Page3 from './components/Page3';
 
 
 const MainContainer = styled.div`
@@ -17,7 +17,7 @@ class App extends React.Component {
 
   // STATES START
   state = {
-    pagina: 1
+    pagina: 3
   };
   // STATES END
 
@@ -28,6 +28,8 @@ class App extends React.Component {
         return <Page1 />;
       case 2:
         return <Page2 />;
+        case 3:
+        return <Page3 />;
         default:
           return  <div>Página não encontrada</div>
     }
@@ -38,6 +40,8 @@ class App extends React.Component {
       this.setState({pagina:2})
     } else if (this.state.pagina === 2) {
       this.setState({pagina:1})
+    } else if (this.state.pagina === 3) {
+      this.setState({pagina:2})
     }
   }
     // PAGES END
