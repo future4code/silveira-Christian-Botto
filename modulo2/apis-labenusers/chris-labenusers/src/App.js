@@ -1,4 +1,3 @@
-import './App.css';
 import React from 'react';
 import styled from 'styled-components';
 import Page1 from './components/Page1';
@@ -7,33 +6,30 @@ import axios from 'axios';
 
 
 const MainContainer = styled.div`
-    display: flex;
     padding: 10px;
-    margin: 10px;
+    text-align: center;
+    margin: auto;
+    border: 3px solid blueviolet;
+    width: 70vh;
+    height:80vh;
 `
 class App extends React.Component {
 
   // STATES START
   state = {
-    // Array inicializado da mesma forma que no Exemplo 5
-    pessoas: [
-      {
-        name: "Teste Pessoa 1",
-        email: "teste@pessoa.com"
-      }
-    ],
-    valorInputPessoas: "",
-    valorInputEmail: "",
     pagina: 1
   };
   // STATES END
 
+  // PAGES START
   renderizaPagina = () => {
     switch (this.state.pagina) {
       case 1:
         return <Page1 />;
       case 2:
         return <Page2 />;
+        default:
+          return  <div>Página não encontrada</div>
     }
   }
 
@@ -44,52 +40,16 @@ class App extends React.Component {
       this.setState({pagina:1})
     }
   }
-
-
-  adicionaPessoas = () => {
-    const novaPessoas = {
-      nome: this.state.valorInputPessoas,
-      email: this.state.valorInputEmail
-    };
-
-    const novoPessoas = [...this.state.pessoas, novaPessoas];
-    this.setState({ pessoas: novoPessoas });
-  };
-
-  onChangeInputPessoas = (event) => {
-    this.setState({ valorInputPessoas: event.target.value });
-  };
-
-  onChangeInputEmail = (event) => {
-    this.setState({ valorInputEmail: event.target.value });
-  };
-
-
-
+    // PAGES END
 
   render() {    
     return (
-      <div>
-        <button onClick={this.trocarPagina}>Trocar de Tela</button>
-        {/* <MainContainer>
-        {this.renderizaPagina()}
-        </MainContainer> */}
-        
+      <div>        
         <MainContainer>
-        <Page1
-            valorInputPessoas={this.state.valorInputPessoas}
-            valorInputEmail={this.state.valorInputEmail}
-            onChangeInputEmail={this.onChangeInputEmail}
-            onChangeInputPessoas={this.onChangeInputPessoas}
-            adicionaPessoas={this.adicionaPessoas}
-          />
-          <Page2
-            pessoas={this.state.pessoas}
-            valorInputFiltro={this.state.valorInputFiltro}
-            onChangeInputFiltro={this.onChangeInputFiltro}
-          />
+          <h1>Labenusers</h1>
+        <button onClick={this.trocarPagina}>Trocar de Tela</button>
+        {this.renderizaPagina()}
         </MainContainer>
-
       </div>
     );
   }
