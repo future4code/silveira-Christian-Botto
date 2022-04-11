@@ -21,11 +21,11 @@ class CreatePage extends React.Component {
             }
         })
             .then((res) => {
-                alert("Cadastrado com sucesso!")
+                alert("Success!")
                 this.setState({ name: "" })
             })
             .catch((err) => {
-                alert("Erro no cadastro")
+                alert("There was a problem trying to create your playlist")
             })
     }
 
@@ -38,7 +38,7 @@ class CreatePage extends React.Component {
                     onChange = {this.onChangePlaylist}
                     placeholder = "Playlist name"
                 />
-                <button onClick={this.adicionaPessoas}>Create Playlist</button>
+                <button onClick={this.addPlaylist}>Create Playlist</button>
             </div>
         )
     }

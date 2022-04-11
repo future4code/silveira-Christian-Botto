@@ -4,7 +4,9 @@ const  Header = (props) => {
 
     return(
         <div>
-            {/* onClick={() => this.props.choosePage("azul")}>Home</button> */}
+            <button onClick={props.choosePageHome}>Home</button>
+            <button onClick={props.choosePageCreate}>Create a Playlist</button>
+            <button onClick={props.choosePageDisplay}>Check your Playlists</button>
         </div>
     )
 }
