@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { CardContainer} from './styles'
+import { CardContainer, CardButton, FlexMatch,  FlexText } from './styles'
 
 
 const Prof = (props) => {
@@ -53,9 +53,11 @@ const Prof = (props) => {
 
         return (
             <CardContainer>
-                <button onClick={props.gotoHome}>Profile</button>
-                matchmatch
-                <button onClick={clearAll} >Clear all mathes</button>
+                <FlexMatch>
+                <CardButton onClick={props.gotoHome}>Profile</CardButton >
+                <FlexText>FIRE-MATCH</FlexText> 
+                <CardButton   onClick={clearAll} >Clear all matches</CardButton >
+                </FlexMatch>
                 <br/> {allLikes}
             </CardContainer>
         )
