@@ -29,6 +29,7 @@ const Prof = (props) => {
             axios
                 .put(url)
                 .then((response) => {
+                    getList()
                     alert(`Cleared successfully!`)
                 })
                 .catch((error) => {
