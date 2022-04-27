@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { useNavigate, useParams} from "react-router-dom";
 import { goBack, goToCreatePage, goToIDPage } from "../routes/coordinator";
+import { useEffect } from "react";
+import { useProtectedPage } from "../hooks/useProtectedPage"
+
 
 const AdminHomePage = () => {
+
+  useProtectedPage() 
 
     const navigate = useNavigate()
     const params = useParams()
