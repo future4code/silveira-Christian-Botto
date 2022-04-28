@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { goBack } from "../routes/coordinator";
+import { goToHomePage } from "../routes/coordinator";
 
 const LoginPage = () => {
 
@@ -21,7 +21,9 @@ const LoginPage = () => {
     setUserPassword(event.target.value)
   }
 
-  const onSubmitLogin = () => {
+  const onSubmitLogin = (event) => {
+    event.preventDefault()
+
     const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/christian-cardeal-silveira/login"
     const body = {
       email: userEmail,
@@ -35,10 +37,11 @@ const LoginPage = () => {
     axios
       .post(url, body, headers)
       .then((response) => {
-        console.log("foi");
+        localStorage.setItem("token", response.data.token);
+        navigate("/admin/trips/list");
       })
       .catch((error) => {
-        console.log("erro")
+        alert("error")
       })
   }
 
@@ -46,21 +49,22 @@ const LoginPage = () => {
   return (
     <div >
       LoginPage
-      <input
-        type='email'
-        value={userEmail}
-        onChange={onChangeEmail}
-        placeholder="E-mail"
-      />
-      <input
-        type='password'
-        value={userPassword}
-        onChange={onChangePassword}
-        placeholder="Password"
-      />
-
-      <button onClick={() => goBack(navigate)} > go back</button>
-      <button onClick={onSubmitLogin} >LOGIN</button>
+      <form onSubmit={onSubmitLogin} >
+        <input
+          type='email'
+          value={userEmail}
+          onChange={onChangeEmail}
+          placeholder="E-mail"
+        />
+        <input
+          type='password'
+          value={userPassword}
+          onChange={onChangePassword}
+          placeholder="Password"
+        />
+        <button >LOGIN</button>
+      </form>
+      <button onClick={() => goToHomePage(navigate)} > go back</button>
     </div>
   );
 }

@@ -15,7 +15,6 @@ const navigate = useNavigate()
     <div >
     HomePage
     <button onClick={() => goToListPage(navigate)} > list</button>
-    <button onClick={() => goToLoginPage(navigate)} > login</button>
     <button onClick={() => goToAdminPage(navigate)} > adm</button>
     </div>
   );
