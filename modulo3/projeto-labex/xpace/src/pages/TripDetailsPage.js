@@ -15,17 +15,19 @@ const TripDetailsPage = () => {
   const [dest, setDest] = useState([]);
 
   useEffect((id) => {
-    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/christian-cardeal-silveira/trips/${id}`
+    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/christian-cardeal-silveira/trip/${id}`
       const token = localStorage.getItem("token");
+      console.log({id})
       const headers = {
         headers: {
-          'auth': token
+          "auth": token
         }
       }
       axios
       .get(url, headers)
       .then((response) => {
-        setDest(response.data.trips)
+        console.log(response.data)
+        setDest(response.data)
       })
       .catch((error) => {
         alert("error")
@@ -43,3 +45,4 @@ const TripDetailsPage = () => {
 }
 
 export default TripDetailsPage
+
