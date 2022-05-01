@@ -38,7 +38,7 @@ const TripDetailsPage = () => {
 
   return (
     <div >
-      TripDetailsPage
+      <p>Trip Details</p>
       <button onClick={() => goBack(navigate)} > go back</button>
     </div>
   );

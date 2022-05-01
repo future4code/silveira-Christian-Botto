@@ -3,31 +3,26 @@ import axios from "axios";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { goToHomePage } from "../routes/coordinator";
+import { useForm } from "../hooks/useForm"
 
 const LoginPage = () => {
 
-  const [userEmail, setUserEmail] = useState("");
-
-  const [userPassword, setUserPassword] = useState("");
+  const { form, onChange, cleanFields } = useForm({
+    email: "",
+    password: ""
+  });
 
 
   const navigate = useNavigate()
 
-  const onChangeEmail = (event) => {
-    setUserEmail(event.target.value)
-  }
-
-  const onChangePassword = (event) => {
-    setUserPassword(event.target.value)
-  }
 
   const onSubmitLogin = (event) => {
     event.preventDefault()
 
     const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/christian-cardeal-silveira/login"
     const body = {
-      email: userEmail,
-      password: userPassword
+      email: form.email,
+      password: form.password
     }
     const headers = {
       headers: {
@@ -48,19 +43,23 @@ const LoginPage = () => {
 
   return (
     <div >
-      LoginPage
+       <p>Login</p>
       <form onSubmit={onSubmitLogin} >
         <input
+        name={"email"}
           type='email'
-          value={userEmail}
-          onChange={onChangeEmail}
+          value={form.email}
+          onChange={onChange}
           placeholder="E-mail"
+          required
         />
         <input
+        name={"password"}
           type='password'
-          value={userPassword}
-          onChange={onChangePassword}
+          value={form.password}
+          onChange={onChange}
           placeholder="Password"
+          required
         />
         <button >LOGIN</button>
       </form>

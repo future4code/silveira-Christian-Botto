@@ -50,7 +50,8 @@ const ListTripsPage = () => {
 
   return (
     <div >
-      ListTripsPage
+      <p> Destinations</p>
+      <br></br>
       <button onClick={() => goBack(navigate)} > go back</button>
       <button onClick={() => goToTripsPage(navigate)} > form</button>
       <br />

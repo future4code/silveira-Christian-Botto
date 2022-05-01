@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
-import { goBack, goToCreatePage, goToIDPage } from "../routes/coordinator";
+import { goToHomePage,e, goToCreatePage, goToIDPage } from "../routes/coordinator";
 import { useEffect } from "react";
 import { useProtectedPage } from "../hooks/useProtectedPage"
+
+
 
 
 const AdminHomePage = () => {
@@ -83,10 +85,11 @@ const AdminHomePage = () => {
 
   return (
     <div >
-      AdminHomePage
-      <button onClick={() => goBack(navigate)} > go back</button>
+      <p>Admin Page</p>
+      <br></br>
+      <button onClick={() => goToHomePage(navigate)} > Home</button>
       <button onClick={() => goToCreatePage(navigate)} > Create</button>
-      <button onClick={logout} > LOGOUT</button>
+      <button onClick={logout} > Logout</button>
       <br />
       <br />
       {listPages}
