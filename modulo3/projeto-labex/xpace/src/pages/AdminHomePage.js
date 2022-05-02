@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { goToHomePage,e, goToCreatePage, goToIDPage } from "../routes/coordinator";
 import { useEffect } from "react";
 import { useProtectedPage } from "../hooks/useProtectedPage"
@@ -14,7 +14,7 @@ const AdminHomePage = () => {
   useProtectedPage()
 
   const navigate = useNavigate()
-  const params = useParams()
+
 
   const logout = () => {
     window.localStorage.clear()
@@ -82,6 +82,7 @@ const AdminHomePage = () => {
       </div>
     )
   })
+
 
   return (
     <div >
