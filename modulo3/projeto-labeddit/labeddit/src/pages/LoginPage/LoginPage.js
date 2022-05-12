@@ -1,69 +1,42 @@
-import React from "react";
-import { Button, TextField } from "@mui/material";
-import useForm from "../../hooks/useForm"
+import React, { useState } from "react";
+import { Button, outlinedInputClasses, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { ScreenContainer, SignUpButtonContainer } from "./styled";
+import LoginForm from "./LoginForm"
+import { goToSignUp } from "../../routes/coordinator";
+import { useUnprotectedPage } from "../../hooks/useUnprotectedPage";
 
 
 
 const LoginPage = () => {
+    useUnprotectedPage()
 
     const navigate = useNavigate()
 
-    const { form, onChange, cleanFields } = useForm({
-        nome: "",
-        idade: "",
-        email: ""
-    });
-
-
-    const onSubmitForm = (event) => {
-        event.preventDefault()
-
-        const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/christian-cardeal-silveira/login"
-        const body = {
-            email: form.email,
-            password: form.password
-        }
-        const headers = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-        axios
-            .post(url, body, headers)
-            .then((response) => {
-                localStorage.setItem("token", response.data.token);
-                navigate("/admin/trips/list");
-            })
-            .catch((error) => {
-                alert("error")
-            })
-    }
-
     return (
-        <div>
+        <ScreenContainer>
             <h2>LoginPage</h2>
-
-            <form onSubmit={onSubmitForm}>
-                <TextField
-                    name={"email"}
-                    value={form.email}
-                    onChange={onChange}
-                />
-                <TextField
-                    name={"password"}
-                    value={form.password}
-                    onChange={onChange}
-                />
-            </form>
-            <Button variant="contained" color="primary">
-                Teste
-            </Button>
-        </div>
+            <LoginForm />
+            <SignUpButtonContainer>
+                <Button
+                    onClick={() => goToSignUp(navigate)}
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    fullWidth
+                    margin={"normal"}
+                >
+                    SIGNUP
+                </Button>
+            </SignUpButtonContainer>
+        </ScreenContainer>
     )
 
 
 }
 
 export default LoginPage
+
+
+
+
