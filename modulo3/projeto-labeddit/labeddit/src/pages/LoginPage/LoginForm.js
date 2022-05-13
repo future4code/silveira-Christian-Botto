@@ -7,7 +7,7 @@ import { login } from "../../services/users";
 
 
 
-const LoginForm = () => {
+const LoginForm = ({setLogButton}) => {
     const navigate = useNavigate()
 
     const { form, onChange, clear } = useForm({
@@ -17,7 +17,7 @@ const LoginForm = () => {
 
     const onSubmitForm = (event) => {
         event.preventDefault()
-        login(form, clear, navigate)
+        login(form, clear, navigate, setLogButton)
     }
 
 

@@ -4,14 +4,14 @@ import { ScreenContainer} from "./styled";
 import SignUpForm from "./SignUpForm"
 import { useUnprotectedPage } from "../../hooks/useUnprotectedPage";
 
-const SignUpPage = () => {
+const SignUpPage = ( setLogButton ) => {
     useUnprotectedPage()
     
     const navigate = useNavigate()
     return (
         <ScreenContainer>
             <h2>SignUpPage</h2>
-            <SignUpForm />
+            <SignUpForm setLogButton = {setLogButton}  />
         </ScreenContainer>
     )
 }

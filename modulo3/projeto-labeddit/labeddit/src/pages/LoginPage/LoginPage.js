@@ -8,7 +8,7 @@ import { useUnprotectedPage } from "../../hooks/useUnprotectedPage";
 
 
 
-const LoginPage = () => {
+const LoginPage = ({setLogButton}) => {
     useUnprotectedPage()
 
     const navigate = useNavigate()
@@ -16,7 +16,7 @@ const LoginPage = () => {
     return (
         <ScreenContainer>
             <h2>LoginPage</h2>
-            <LoginForm />
+            <LoginForm setLogButton = {setLogButton} />
             <SignUpButtonContainer>
                 <Button
                     onClick={() => goToSignUp(navigate)}

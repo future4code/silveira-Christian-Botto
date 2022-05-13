@@ -8,7 +8,7 @@ import {BASE_URL} from "../../constants/urls"
 import { signup } from "../../services/users";
 
 
-const SignUpForm = () => {
+const SignUpForm = ( setLogButton ) => {
     const navigate = useNavigate()
 
     const { form, onChange, clear } = useForm({
@@ -19,7 +19,7 @@ const SignUpForm = () => {
 
     const onSubmitForm = (event) => {
         event.preventDefault()
-        signup(form, clear, navigate)
+        signup(form, clear, navigate, setLogButton )
     }
 
     return (
