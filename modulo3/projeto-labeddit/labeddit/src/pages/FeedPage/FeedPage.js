@@ -5,6 +5,7 @@ import { BASE_URL } from "../../constants/urls";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { useRequestData } from "../../hooks/useRequestData";
 import { goToPost } from "../../routes/coordinator";
+import FeedForm from "./FeedForm";
 
 const FeedPage = () => {    
     useProtectedPage()
@@ -34,7 +35,7 @@ const FeedPage = () => {
 
     return (
 <div>
-FeedPage
+<FeedForm />
     {listFeed }
 </div>
     )
