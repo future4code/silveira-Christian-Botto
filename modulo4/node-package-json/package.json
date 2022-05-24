@@ -1,0 +1,13 @@
+{
+  "name": "aula-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "ops":"clear && node ./ops.js",
+    "tasks":"clear && node ./tasks.js"
+  },
+  "author": "Christian Cardeal",
+  "license": "ISC"
+}
