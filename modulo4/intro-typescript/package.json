@@ -1,0 +1,17 @@
+{
+  "name": "aula-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./build/index.js",
+    "one":"clear && node ./src/one.ts",
+    "two":"clear && node ./src/two.ts",
+    "three":"clear && node ./src/three.ts",
+    "four":"clear && node ./src/four.ts",
+    "five":"clear && node ./src/five.ts",
+    "six":"clear && node ./src/six.ts",
+  },
+  "author": "Christian Cardeal",
+  "license": "ISC"
+}
