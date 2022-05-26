@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "tsc && node ./build/index.js",
-    "one":"clear && node ./src/one.ts",
-    "two":"clear && node ./src/two.ts",
-    "three":"clear && node ./src/three.ts",
-    "four":"clear && node ./src/four.ts",
-    "five":"clear && node ./src/five.ts",
-    "six":"clear && node ./src/six.ts",
+    "one":"clear && tsc && node ./build/one.js",
+    "two":"clear && ts && node ./build/two.js",
+    "three":"clear && ts && node ./build/three.js",
+    "four":"clear && ts && node ./build/four.js",
+    "five":"clear && ts && node ./build/five.js",
+    "six":"clear && ts && node ./build/six.js"
   },
   "author": "Christian Cardeal",
   "license": "ISC"
