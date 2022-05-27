@@ -1,0 +1,21 @@
+{
+  "name": "aula-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./build/index.js",
+    "ex1": "clear && tsc && node ./build/ex1.js",
+    "ex2": "clear && tsc && node ./build/ex2.js",
+    "ex3": "clear && tsc && node ./build/ez3.js",
+    "ex4": "clear && tsc && node ./build/ex4.js",
+    "ex5": "clear && tsc && node ./build/ex5.js",
+    "ex6": "clear && tsc && node ./build/ex6.js",
+    "ex7": "clear && tsc && node ./build/ex7.js",
+    "ex8": "clear && tsc && node ./build/ex8.js",
+    "ex9": "clear && tsc && node ./build/ex9.js",
+    "ex10": "clear && tsc && node ./build/ex10.js",
+    "ex11": "clear && tsc && node ./build/ex11.js"  },
+  "author": "Christian Cardeal",
+  "license": "ISC"
+}
