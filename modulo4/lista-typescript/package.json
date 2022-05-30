@@ -7,7 +7,7 @@
     "start": "tsc && node ./build/index.js",
     "ex1": "clear && tsc && node ./build/ex1.js",
     "ex2": "clear && tsc && node ./build/ex2.js",
-    "ex3": "clear && tsc && node ./build/ez3.js",
+    "ex3": "clear && tsc && node ./build/ex3.js",
     "ex4": "clear && tsc && node ./build/ex4.js",
     "ex5": "clear && tsc && node ./build/ex5.js",
     "ex6": "clear && tsc && node ./build/ex6.js",

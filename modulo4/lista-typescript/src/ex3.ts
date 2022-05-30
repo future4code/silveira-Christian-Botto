@@ -15,15 +15,22 @@ score?: number
 
 
 
-function flix(name:string, year:number, genre:GENERO, score?:number ): movies {
-    const movie: movies= {
+function flix(name:string, year:number, genre:GENERO, score?:number ) {
+	const scored = score !== 0 ? {
         nome: name,
         anoLancamrento: year,
         genero: genre,
         pontuacao: score
-        }
-    return movie
-} 
+	}
+	:
+	{
+        nome: name,
+        anoLancamrento: year,
+        genero: genre,
+	}
+	return scored 
+}
+
 
 console.log(flix("oi", 21, GENERO.DRAMA))
 
