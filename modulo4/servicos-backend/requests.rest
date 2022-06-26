@@ -1,0 +1,4 @@
+GET https://viacep.com.br/ws/05424150/json/
+
+###
+post https://cep-labenu.herokuapp.com/user/05424150
