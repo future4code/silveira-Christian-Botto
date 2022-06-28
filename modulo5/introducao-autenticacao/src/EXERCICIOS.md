@@ -23,6 +23,3 @@ Ela vai tratar a chave como uma string.
 
 7 - 
 Porque pode ser qualquer coisa retornando.
-
-
-
