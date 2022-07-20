@@ -2,14 +2,22 @@ import React, { useState, useEffect } from "react";
 import { MainContainer, DropDown, DropDownButton, DropDownMenu, LottoLogo, Footer, DivNumbers, DivId } from "./styled";
 import axios from "axios";
 import { BASE_URL } from "../../constants/constants"
+import NumberCards from "../../components/NumberCards";
 
 function MegaSenaPage() {
 
   const [lotto, setLotto] = useState([])
 
   useEffect(() => {
-    getLotto()
+    getLotto()    
+    // lotto.data && dateLotto()
+    lotto.data && console.log(lotto.data)
   }, [])
+
+  // useEffect(() => {
+  //   lotto.data  && dateLotto()
+  //   lotto.data && console.log(lotto.data)
+  // }, [])
 
   const getLotto = () => {
     const url = `${BASE_URL}2359`
@@ -22,6 +30,29 @@ function MegaSenaPage() {
         alert(error.response.data)
       })
   }
+
+
+  const numbersMap = lotto.numeros && lotto.numeros.map((number) => {
+    return (
+      <NumberCards
+        key={number}
+        no={number}
+      />
+    )
+  })
+
+   const dateLotto = (lotto) => {
+    const dateFinal = ""
+    const dateDay = lotto.data.slice(8, 2)
+    const dateMonth = lotto.data.slice(5, 2)
+    const dateYear = lotto.data.slice(0, 4)
+    dateFinal = dateFinal.push("dateDay").push("/").push("dateMonth").push("/").push("dateYear")
+    return (
+      dateFinal
+    )
+  }
+
+
 
   return (
     <MainContainer>
@@ -43,26 +74,21 @@ function MegaSenaPage() {
         </DropDownMenu>
       </DropDown>
 
-      {lotto.numeros}
       <DivNumbers>
-        {lotto.numeros[0]}
-        {lotto.numeros[1]}
-        {lotto.numeros[2]}
-        {lotto.numeros[3]}
-        {lotto.numeros[4]}
-        {lotto.numeros[5]}
+        {numbersMap}
       </DivNumbers>
 
+
       <DivId>
-        concurso
+        Concurso
         <br></br>
-        {lotto.id} -  {lotto.data} // Consertar exibição da data
+        {lotto.id} 
       </DivId>
 
 
       <Footer>
         <br></br>
-        Este sorteio é meramente ilustrativo e não possui nenhuma ligação com a CAIXA.
+        Este sorteio é meramente ilustrativo e não possui nenhu ma ligação com a CAIXA.
       </Footer>
 
 

@@ -3,7 +3,10 @@ import styled from "styled-components";
 
 // Theme
 export const MainContainer = styled.div`
-background-color: #6BEFA3;
+background: radial-gradient(
+      150% 350% at right, #F0F0F0 53%,  #6BEFA3 30%);
+height: 100vh
+
 `
 
 export const Footer = styled.div`
@@ -11,7 +14,7 @@ export const Footer = styled.div`
 `
 
 export const DivId = styled.div`
-
+/* color:white; */
 `
 
 export const DivNumbers = styled.div`
@@ -30,6 +33,7 @@ export const DropDownButton = styled.select `
   border: none;
   cursor: pointer;
    width:200px; 
+   :active{display:block}
 `
 export const DropDownMenu = styled.div `
   display: none;
