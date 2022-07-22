@@ -18,6 +18,6 @@ export const goToQuinaPage = (navigate) => {
     navigate(`/quina`)
 }
 
-export const goTimeManiaEdit = (navigate) => {
+export const goToTimeManiaPage = (navigate) => {
     navigate("/time+mania")
 }

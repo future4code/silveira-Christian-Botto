@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { MainContainer, DropDown, DropDownButton, DropDownMenu, LottoLogo, Footer, DivNumbers, DivId } from "./styled";
+import {DropDown, DropDownButton, DropDownMenu, LottoLogo, LottoLogoLogo, DivNumberFooter, DivRest,
+  LottoLogoName, Footer, DivNumbers, DivId} from "../../styles/styled";
+import { MainContainerMegaSena as MainContainer }from "../../styles/styled";
+import { useNavigate } from "react-router-dom";
+import {goToMegaSenaPage, goToDiaDeSortePage, goToLotoFacilPage, goToLotoManiaPage, goToTimeManiaPage, goToQuinaPage} from "../../router/coordinator"
 import axios from "axios";
 import { BASE_URL } from "../../constants/constants"
 import NumberCards from "../../components/NumberCards";
@@ -10,11 +14,11 @@ function MegaSenaPage() {
 
   const [lotto, setLotto] = useState([])
 
+  const navigate = useNavigate()
+
   useEffect(() => {
     getLotto()
-    // lotto && console.log(lotto)
   }, [])
-  // console.log(lotto) 
 
   const getLotto = () => {
     const url = `${BASE_URL}2359`
@@ -22,7 +26,6 @@ function MegaSenaPage() {
       .get(url)
       .then((response) => {
         setLotto(response.data)
-        // console.log(lotto) 
       })
       .catch((error) => {
         alert(error.response.data)
@@ -55,38 +58,46 @@ function MegaSenaPage() {
   return (
     <MainContainer>
 
-      <DropDown>
-        <DropDownButton ><option>Mega-Sena</option></DropDownButton>
-        <DropDownMenu>
-          <a href="/dia+de+sorte">Dia de Sorte</a>
-          <a href="/loto+facil">Loto Fácil</a>
-          <a href="/loto+mania">Loto Mania</a>
-          <a href="/quina">Quina</a>
-          <a href="/time+mania">Time Mania</a>
-        </DropDownMenu>
-      </DropDown>
+      <DivRest>
+        <DropDown>
+          <DropDownButton ><option>Mega-Sena</option></DropDownButton>
+          <DropDownMenu>
+            <a onClick={() => goToDiaDeSortePage(navigate)}>Dia de Sorte</a>
+            <a onClick={() => goToLotoFacilPage(navigate)}>Loto Facil</a>
+            <a onClick={() => goToDiaDeSortePage(navigate)}>Dia de Sorte</a>
+            <a onClick={() => goToQuinaPage(navigate)}>Quina</a>
+            <a onClick={() => goToTimeManiaPage(navigate)}>Time Mania</a>
+          </DropDownMenu>
+        </DropDown>
 
-      <LottoLogo>
-        <img src={MegaSena_Logo} />
-        <img src={MegaSena_Name} />
-      </LottoLogo>
-
-
-      <DivId>
-        Concurso
-        <br></br>
-        {lotto.id} - {dateNew}
-      </DivId>
-
-      <DivNumbers>
-        {numbersMap}
-      </DivNumbers>
+        <LottoLogo>
+          <LottoLogoLogo>
+            <img src={MegaSena_Logo} />
+          </LottoLogoLogo>
+          <LottoLogoName>
+            <img src={MegaSena_Name} />
+          </LottoLogoName>
+        </LottoLogo>
 
 
-      <Footer>
-        <br></br>
-        Este sorteio é meramente ilustrativo e não possui nenhuma ligação com a CAIXA.
-      </Footer>
+        <DivId>
+          Concurso
+          <br></br> <br></br>
+          {lotto.id} - {dateNew}
+        </DivId>
+      </DivRest>
+
+      <DivNumberFooter>
+        <DivNumbers>
+          {numbersMap}
+        </DivNumbers>
+
+        <Footer>
+          <br></br>
+          Este sorteio é meramente ilustrativo e não possui nenhuma ligação com a CAIXA.
+        </Footer>
+      </DivNumberFooter>
+
 
 
 
