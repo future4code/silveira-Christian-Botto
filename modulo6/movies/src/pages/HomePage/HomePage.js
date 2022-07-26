@@ -27,14 +27,12 @@ const HomePage = () => {
 
     // States and Constants 
     const navigate = useNavigate()
-
-    let filters = []
-    const [filteredMovies, setFilteredMovies] = useState({})
-    const [genreSelect, setGenreSelect] = useState("")
+    
+    let [genreSelect, setGenreSelect] = useState([])
 
     // Requests
     const movies = useRequestData({}, `${url_popular}${api_key}`).results
-    console.log(movies)
+    // console.log(movies)
 
     const genres = useRequestData({}, `${url_genres}${api_key}&language=en-US`).genres
 
@@ -42,58 +40,54 @@ const HomePage = () => {
     const onClickCard = (id) => {
         goToDetailsPage(navigate, id)
     }
-console.log(genreSelect)
+
+    const onClickGenres = ((id) => {
+        let newGenre = [...genreSelect]
+        if (genreSelect.includes(id)) {
+            newGenre = newGenre.filter(remove => remove !== id);
+        } else {
+            newGenre.push(id)
+        }
+        setGenreSelect(newGenre)
+
+    })
     // Render
     const GenresMap = genres && genres.map((genre) => {
         return (
             <CardFilters
                 key={genre.id}
                 name={genre.name}
-                setGenreSelect = {setGenreSelect}
-                id = {genre.id}
-            />
-        )
-    })
-    const genresLength = genres && Object.keys(genres).length
-    const MoviesMap = movies && 
-    movies
-    .filter((movie) =>{
-        return movie.genre_ids.some((film) => {
-            // console.log(film)
-            return genreSelect === film
-        })
-    })
-    .map((movie) => {
-        return (
-            <CardMovies
-                key={movie.id}
-                poster={`${url_images}${movie.poster_path}`}
-                title={movie.original_title}
-                release={movie.release_date}
-                onClick={() => onClickCard(movie.id)}
+                setGenreSelect={onClickGenres}
+                id={genre.id}
+                selected = {genreSelect.includes(genre.id)}
             />
         )
     })
 
-    // const genresLength = genres && Object.keys(genres).length
-    // for (let ii = 0; ii < genresLength; ii++) {
-    //     let newMovie = []
-
-        // if (filters.includes(`${genres.name}`)) {
-        //     filters = filters.filter(remove => remove !== `${genres.name}`);
-        //     // Mudar cor do botão
-        // } else {
-        //     filters.push(`${genres.name}`)
-        //     //Mudar cor do botão
-        // };
-
-    //     movies && movies.forEach((movie) => {
-    //         if (movie.genre_ids.includes(`${genres.id}`)) {
-    //             newMovie.push(movie)
-    //         }
-    //     })
-    //     setFilteredMovies(newMovie)
-    // }
+    const MoviesMap = movies && genreSelect &&
+        movies
+            .filter((movie) => {
+                console.log(genreSelect, movie.genre_ids)
+                if(genreSelect.length === 0) {
+                    return movie
+                } else {   
+                    return genreSelect.every((genre) =>{
+                        return movie.genre_ids.includes(genre)
+                    })                
+                    
+            }
+            })
+            .map((movie) => {
+                return (
+                    <CardMovies
+                        key={movie.id}
+                        poster={`${url_images}${movie.poster_path}`}
+                        title={movie.original_title}
+                        release={movie.release_date}
+                        onClick={() => onClickCard(movie.id)}
+                    />
+                )
+            })
 
 
 

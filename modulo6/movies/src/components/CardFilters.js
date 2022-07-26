@@ -9,7 +9,7 @@ padding:6px;
 `
 
 const Button = styled.button`
-  background-color: #fbeee0;
+  background-color: ${(p) =>p.selected ? "	#FF69B4" : "#fbeee0"};
   border: 2px solid #422800;
   border-radius: 30px;
   box-shadow: #422800 4px 4px 0 0;
@@ -26,23 +26,20 @@ const Button = styled.button`
   -webkit-user-select: none;
   touch-action: manipulation;
   :hover {
-  background-color: #800080;
+  background-color: 	#BA55D3;
 }
 :active {
   box-shadow: #422800 2px 2px 0 0;
   transform: translate(2px, 2px);
 }
-:focus {     
-    background-color:#9370DB;    
-}
+
 `
 
 
 const CardFilters = (props) => {
-  // console.log(props)
     return (
         <MainContainer >
-            <Button onClick = {() => props.setGenreSelect(props.id)}> {props.name} </Button>
+            <Button selected={props.selected} onClick = {() => props.setGenreSelect(props.id)}> {props.name} </Button>
         </MainContainer >
     )
 }
