@@ -27,7 +27,7 @@ const HomePage = () => {
 
     // States and Constants 
     const navigate = useNavigate()
-    
+
     let [genreSelect, setGenreSelect] = useState([])
 
     // Requests
@@ -59,7 +59,7 @@ const HomePage = () => {
                 name={genre.name}
                 setGenreSelect={onClickGenres}
                 id={genre.id}
-                selected = {genreSelect.includes(genre.id)}
+                selected={genreSelect.includes(genre.id)}
             />
         )
     })
@@ -67,15 +67,14 @@ const HomePage = () => {
     const MoviesMap = movies && genreSelect &&
         movies
             .filter((movie) => {
-                console.log(genreSelect, movie.genre_ids)
-                if(genreSelect.length === 0) {
+                if (genreSelect.length === 0) {
                     return movie
-                } else {   
-                    return genreSelect.every((genre) =>{
+                } else {
+                    return genreSelect.every((genre) => {
                         return movie.genre_ids.includes(genre)
-                    })                
-                    
-            }
+                    })
+
+                }
             })
             .map((movie) => {
                 return (
@@ -88,8 +87,6 @@ const HomePage = () => {
                     />
                 )
             })
-
-
 
     return (
         <div>
