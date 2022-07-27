@@ -41,6 +41,18 @@ padding-left: 120px;
 padding-right: 120px;
 `
 
+// Pagination Container
+export const PaginationContainer = styled.div`
+margin:auto;
+display:flex;
+flex-direction: row;
+justify-content: space-between;
+flex-wrap: wrap;
+padding-top: 20px;
+padding-left:300px;
+padding-right:400px;
+`
+
 // Movies Container
 
 export const MovieContainer = styled.div`
@@ -48,7 +60,7 @@ display:flex;
 flex-direction: row;
 justify-content: space-between;
 flex-wrap: wrap;
-padding-top: 30px;
+padding-top: 10px;
 padding-left:70px;
 padding-right:70px;
 `
