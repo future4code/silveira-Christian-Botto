@@ -29,4 +29,5 @@ width: 300px;
 export const DivInfo = styled.h5`
 display: flex;
 flex-direction: row;
+align-items: center;
 `

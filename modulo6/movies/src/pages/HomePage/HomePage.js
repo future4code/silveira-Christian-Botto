@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 import { url_genres } from "../../constants/urls";
 import { url_popular } from "../../constants/urls";
 import { url_images } from "../../constants/urls";
-    
+
 
 // Requests
 import axios from "axios";
@@ -27,7 +27,7 @@ import { FilterContainer, ParPhrase, ParFilter, MovieContainer, FilterButtonCont
 
 // Code
 const HomePage = () => {
-    
+
 
     // States and Constants 
     const navigate = useNavigate()
@@ -40,36 +40,30 @@ const HomePage = () => {
 
     useEffect(() => {
         if (genreSelect.length) {
-            localStorage.setItem("genre", JSON.stringify(genreSelect))
+            window.sessionStorage.setItem("genre", JSON.stringify(genreSelect))
         }
     }, [genreSelect]);
 
     useEffect(() => {
-        const genreString = localStorage.getItem("genre")
+        if (pageSelect && pageSelect !== "1") {
+            window.sessionStorage.setItem("page", (pageSelect))
+        }
+    }, [pageSelect]);
+
+    useEffect(() => {
+        const genreString = window.sessionStorage.getItem("genre")
+        const page = window.sessionStorage.getItem("page")
         if (genreString) {
             const genreObj = JSON.parse(genreString)
             setGenreSelect(genreObj)
         }
+        if (page) {
+            console.log(page)
+            setPageSelect(page)
+        }
     }, []);
 
-    // useEffect(() => {
-    //     if (pageSelect.length) {
-    //         localStorage.setItem("page", JSON.stringify(pageSelect))
-    //     }
-    // }, [pageSelect]);
-
-    // useEffect(() => {
-    //     const pageString = localStorage.getItem("page")
-    //     if (pageString) {
-    //         const pageObj = JSON.parse(pageString)
-    //         setGenreSelect(pageObj)
-    //     }
-    // }, []);
-
-    useEffect(() => {
-        pagesMovies(pageSelect)
-    }, [pageSelect]);
-
+    
     useEffect(() => {
         pagesMovies(pageSelect)
     }, [pageSelect]);
@@ -117,7 +111,7 @@ const HomePage = () => {
     const onClickPrevious = ((page) => {
         let newPage = ""
         if (page === 1) {
-             newPage = page
+            newPage = page
         } else {
             newPage = Number(page) - 1
         }
@@ -127,10 +121,10 @@ const HomePage = () => {
     const pagination = Array.from(Array(5), (_, i) => {
         if (pageSelect <= 5) {
             return i + 1
-        } else if (pageSelect <=1000) {
+        } else if (pageSelect <= 1000) {
             return i + pageSelect - 4
         }
-    }    
+    }
     )
 
     // Render
@@ -145,14 +139,14 @@ const HomePage = () => {
             />
         )
     })
-    
+
     const pagesMap = movies && pagination.map((page) => {
         return (
             <CardPagination
                 key={page}
                 number={page}
                 onClickPagination={onClickPagination}
-                selectedPage = {pageSelect === page}
+                selectedPage={pageSelect == page}
             />
         )
     })

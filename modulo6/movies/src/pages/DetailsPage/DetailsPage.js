@@ -15,6 +15,7 @@ import { ColumnOne, ColumnTwo, Firstontainer, IMG, DivInfo } from "./styled";
 
 // COmponents
 import CardGenres from "../../components/CardGenres";
+import CardPercentage from "../../components/CardPercentage";
 
 
 
@@ -25,7 +26,7 @@ const DetailsPage = (props) => {
 
     // Requests
     const movie = useRequestData({}, `${url_details}${params.id}?api_key=${api_key}&language=en-US`)
-    console.log(movie)
+    // console.log(movie)
 
 
 
@@ -35,8 +36,8 @@ const DetailsPage = (props) => {
             rel.iso_3166_1.includes("US")
         )
     })
-    console.log(releaseUS)
-    console.log(releaseUS && releaseUS[0].release_dates)
+    // console.log(releaseUS)
+    // console.log(releaseUS && releaseUS[0].release_dates)
 
 
     // Render
@@ -90,6 +91,10 @@ const DetailsPage = (props) => {
                         {runtimeNew[0]}h{runtimeNew[1]}m
                     </DivInfo>
                     <h3>User Score {movie && movie.vote_average}</h3>
+                    <CardPercentage 
+                    score = {movie && movie.vote_average*10}             
+                    dataProgress = {movie && Math.round(movie.vote_average*10)}         
+                    />
                     <h3>Overview</h3>
                     <h4>{movie && movie.overview} </h4>
                 </ColumnTwo>
