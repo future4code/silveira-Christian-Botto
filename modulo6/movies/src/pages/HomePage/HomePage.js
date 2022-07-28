@@ -13,14 +13,10 @@ import { goToDetailsPage } from "../../router/coordinator";
 import { useNavigate } from "react-router-dom";
 
 // Urls
-import { api_key } from "../../constants/urls";
 import { url_genres } from "../../constants/urls";
 import { url_popular } from "../../constants/urls";
 import { url_images } from "../../constants/urls";
-// import dotenv from 'dotenv'
-// // dotenv.config()
-    // require("dotenv").config()/
-    // const api_key = process.env.REACT_APP_API_KEY;
+    
 
 // Requests
 import axios from "axios";
@@ -31,9 +27,11 @@ import { FilterContainer, ParPhrase, ParFilter, MovieContainer, FilterButtonCont
 
 // Code
 const HomePage = () => {
+    
 
     // States and Constants 
     const navigate = useNavigate()
+    const api_key = process.env.REACT_APP_API_KEY;
     let [genreSelect, setGenreSelect] = useState([])
     let [pageSelect, setPageSelect] = useState("1")
     let [movies, setMovies] = useState([])
@@ -54,10 +52,27 @@ const HomePage = () => {
         }
     }, []);
 
+    // useEffect(() => {
+    //     if (pageSelect.length) {
+    //         localStorage.setItem("page", JSON.stringify(pageSelect))
+    //     }
+    // }, [pageSelect]);
+
+    // useEffect(() => {
+    //     const pageString = localStorage.getItem("page")
+    //     if (pageString) {
+    //         const pageObj = JSON.parse(pageString)
+    //         setGenreSelect(pageObj)
+    //     }
+    // }, []);
+
     useEffect(() => {
         pagesMovies(pageSelect)
     }, [pageSelect]);
 
+    useEffect(() => {
+        pagesMovies(pageSelect)
+    }, [pageSelect]);
 
     // Requests
     const genres = useRequestData({}, `${url_genres}${api_key}&language=en-US`).genres
@@ -73,8 +88,6 @@ const HomePage = () => {
                 alert("Can't load data, refresh your browser")
             })
     }
-
-
 
     // Functions
     const onClickCard = (id) => {
@@ -111,6 +124,15 @@ const HomePage = () => {
         setPageSelect(newPage)
     })
 
+    const pagination = Array.from(Array(5), (_, i) => {
+        if (pageSelect <= 5) {
+            return i + 1
+        } else if (pageSelect <=1000) {
+            return i + pageSelect - 4
+        }
+    }    
+    )
+
     // Render
     const GenresMap = genres && genres.map((genre) => {
         return (
@@ -119,27 +141,18 @@ const HomePage = () => {
                 name={genre.name}
                 setGenreSelect={onClickGenres}
                 id={genre.id}
-                selected={genreSelect.includes(genre.id)}
+                selectedFilters={genreSelect.includes(genre.id)}
             />
         )
     })
-
-    const pagination = Array.from(Array(5), (_, i) => {
-        if (pageSelect <= 5) {
-            return i + 1
-        } else if (pageSelect <=1000) {
-            return i + pageSelect - 4
-        }
-    }
     
-    )
-    // const pagination = [1, 2, 3, 4, 5]
     const pagesMap = movies && pagination.map((page) => {
         return (
             <CardPagination
                 key={page}
                 number={page}
                 onClickPagination={onClickPagination}
+                selectedPage = {pageSelect === page}
             />
         )
     })
@@ -187,6 +200,7 @@ const HomePage = () => {
                 />
 
                 {pagesMap}
+
                 <CardNextPrevious
                     name="Next"
                     number={pageSelect}

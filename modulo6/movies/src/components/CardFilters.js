@@ -39,7 +39,7 @@ const Button = styled.button`
 const CardFilters = (props) => {
     return (
         <MainContainer >
-            <Button selected={props.selected} onClick = {() => props.setGenreSelect(props.id)}> {props.name} </Button>
+            <Button selected={props.selectedFilters} onClick = {() => props.setGenreSelect(props.id)}> {props.name} </Button>
         </MainContainer >
     )
 }
