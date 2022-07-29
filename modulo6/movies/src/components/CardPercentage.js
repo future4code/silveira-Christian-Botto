@@ -12,7 +12,7 @@ const PercentContainer = styled.div`
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: conic-gradient(red var(--progress), gray 0deg);
+  background: conic-gradient(#14FF00 var(--progress), #9370db 0deg);
   font-size: 0;  
  :after {
   content: attr(data-progress) '%';
@@ -22,10 +22,10 @@ const PercentContainer = styled.div`
   width: 100%;
   margin: 10px;
   border-radius: 50%;
-  background: 	white;
+  background: #800080;
   font-size: 1rem;
   text-align: center;
-  color:black;
+  color:#14FF00;
 }
 `
 

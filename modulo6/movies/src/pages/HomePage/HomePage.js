@@ -23,7 +23,11 @@ import axios from "axios";
 import useRequestData from "../../hooks/useRequestData";
 
 // Style
-import { FilterContainer, ParPhrase, ParFilter, MovieContainer, FilterButtonContainer, PaginationContainer } from "./styled"
+import {
+    FilterContainer, ParPhrase, ParFilter, MovieContainer,
+    FilterButtonContainer, PaginationContainer, SubMovieContainer,
+    MainContainer, PaginationContainerAux
+} from "./styled"
 
 // Code
 const HomePage = () => {
@@ -58,12 +62,11 @@ const HomePage = () => {
             setGenreSelect(genreObj)
         }
         if (page) {
-            console.log(page)
             setPageSelect(page)
         }
     }, []);
 
-    
+
     useEffect(() => {
         pagesMovies(pageSelect)
     }, [pageSelect]);
@@ -78,7 +81,6 @@ const HomePage = () => {
                 setMovies(response.data.results)
             })
             .catch((error) => {
-                console.log(error)
                 alert("Can't load data, refresh your browser")
             })
     }
@@ -176,7 +178,7 @@ const HomePage = () => {
             })
 
     return (
-        <div>
+        <MainContainer >
             <FilterContainer>
                 <ParPhrase>Here are the most popular titles today. Explore and enjoy!</ParPhrase>
                 <ParFilter>Filter Options:</ParFilter>
@@ -187,19 +189,28 @@ const HomePage = () => {
 
             <PaginationContainer>
 
-                <CardNextPrevious
-                    name="Previous"
-                    number={pageSelect}
-                    onClickPagination={onClickPrevious}
-                />
+                <PaginationContainerAux>
+                    <CardNextPrevious
+                        name="Previous"
+                        number={pageSelect}
+                        onClickPagination={onClickPrevious}
+                    />
+                </PaginationContainerAux>
 
-                {pagesMap}
 
-                <CardNextPrevious
-                    name="Next"
-                    number={pageSelect}
-                    onClickPagination={onClickNext}
-                />
+                <PaginationContainerAux >
+                    {pagesMap}
+                </PaginationContainerAux>
+
+                <PaginationContainerAux>
+                    <CardNextPrevious
+                        name="Next"
+                        number={pageSelect}
+                        onClickPagination={onClickNext}
+                    />
+                </PaginationContainerAux>
+
+
             </PaginationContainer>
 
 
@@ -208,7 +219,7 @@ const HomePage = () => {
             </MovieContainer>
 
 
-        </div>
+        </MainContainer >
     )
 }
 

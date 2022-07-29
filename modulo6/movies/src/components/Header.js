@@ -12,7 +12,7 @@ import TMDB from "../assets/tmdb.svg"
 import styled from "styled-components";
 
 const HeaderStyled = styled.header`
-    background: 		#4B0082;
+    background: #4B0082	;
     height: 56px;
     width: 100vw;
     img {
@@ -20,7 +20,13 @@ const HeaderStyled = styled.header`
         cursor: pointer;
         height:30px;
         padding-left: 5vw;
-    }    
+    }  
+    @media(max-width: 800px) {
+        img {
+            width: 55vw;
+            margin: auto;
+    }  
+  }  
 `
 
 const Header = () => {
