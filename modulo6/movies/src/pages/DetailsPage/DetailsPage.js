@@ -203,7 +203,7 @@ const DetailsPage = (props) => {
 
 
             <VideoContainer>
-                <YoutubeEmbed embedId={trailer && trailer[0].key} />
+                <YoutubeEmbed embedId={trailer && trailer.length !== 0 ? trailer[0].key: "dDzcvELBxtI"} />
             </VideoContainer>
 
             <RecommendedContainer>
