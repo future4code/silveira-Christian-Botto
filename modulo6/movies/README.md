@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+<h1 align="center">
+     The Movie Database - Replica Project
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h4 align="left">
+    A replica of The Movie Database.
+</h4>
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+##  🕵 About
 
-### `npm start`
+This project copies a few functionalities of The Movie Database. Users can see the most popular movies and tv shows on that day and can also see more details about titles and the cast by clicking on them.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+##  👨 Made by
 
-### `npm test`
+- Christian Penna Botto
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
+##  🔠Conteúdos
 
-### `npm run build`
+<!--ts-->
+   * [About](#about)
+   * [Made By](#made-by)
+   * [Status](#status)
+   * [Technologies](#Technologies)
+   * [Objetive](#objetive)
+   * [Functionalities](#functionalities)
+   * [Project Wireframe](#project-wireframe)
+   * [Link for the deployed website](#link-for-the-deployed-website)
+   * [Run this project](#run-this-project)
+   * [License](#license)
+<!--te-->
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+##  🔠Technologies 
 
-### `npm run eject`
+<!--ts-->
+   * Made using React
+   * Pages using Router
+   * Requests using Axios
+   * Styling using Styled-Components
+   * Hooks
+<!--te-->
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
+##  🧭Status 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+ - ⌛ Done
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+##  🎯Objetive
 
-## Learn More
+This is a Front-end project used as a study case to show my abilities in working with the technologies described in [Technologies](#Technologies).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## ☑️Functionalities
+- [x] On the homepage, the top 20 most popular movies/tv shows are rendered;
+- [x] All the movies/tv shows genres are also rendered, and they can be clicked on to filter the rendered movies/tv shows by genre (more than one genre can be chosen).
+-  [x]  There is pagination. Both the Filters and the Pagination are saved so that the user can refresh the page and their choices will still be there.
+-  [x]  You can click on any movie to load more details about it.
+-  [x]  On the Movie Details page, there is more info, like cast, crew, trailer, other recommended movies, user score, etc. 
+-  [x]  The user can click on the cast members to load more information about that person, including other movies they were featured in.
+-  [x] The image in the banner can be clicked on to return to the home page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 💡Project Wireframe
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![Wireframe](/wireframe.png)
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🔗Link for the deployed website
 
-### Deployment
+- **Surge:** [The Movie Database - Replica Project](https://tmdb-replica-project.surge.sh) 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🛰Run this project
+
+
+
+To run this project, you should:
+
+- Clone this repo;
+- Run npm i;
+- That's it :)
+
+
+---
+
+## 📝License
+
+This project is under the [MIT](./LICENSE).license.
