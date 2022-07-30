@@ -8,9 +8,7 @@ const MainContainer = styled.div`
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   width: 210px;
-  height: 400px;
-  /* padding-left: 20px;
-  padding-right: 20px; */
+  height: 410px;
   cursor:pointer;
   text-align: center;
   :hover {
