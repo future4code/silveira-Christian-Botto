@@ -6,4 +6,6 @@ export const url_images = "http://image.tmdb.org/t/p/original"
 
 export const url_details = "https://api.themoviedb.org/3/movie/"
 
+export const url_person = "https://api.themoviedb.org/3/person/"
+
 export const url_genres = "https://api.themoviedb.org/3/genre/movie/list?api_key="

@@ -11,11 +11,8 @@ import Header from "./components/Header";
 function App() {
   return (
       <BrowserRouter>
-
-        <Header/>
-        
-        <Router />
-        
+        <Header/>        
+        <Router />        
       </BrowserRouter>
   );
 }

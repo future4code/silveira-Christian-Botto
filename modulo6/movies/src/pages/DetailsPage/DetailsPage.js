@@ -5,6 +5,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { goToDetailsPage } from "../../router/coordinator";
 import { useNavigate } from "react-router-dom";
+import { goToDetailsPageCast } from "../../router/coordinator";
 
 
 // Urls
@@ -44,20 +45,10 @@ const DetailsPage = (props) => {
         goToDetailsPage(navigate, id)
     }
 
-    // Requests
-    const movie = useRequestData({}, `${url_details}${params.id}?api_key=${api_key}&language=en-US`)
+    const onClickCardCast = (id) => {
+        goToDetailsPageCast(navigate, id)
+    }
 
-    const release = useRequestData([], `${url_details}${params.id}/release_dates?api_key=${api_key}`).results
-
-    const credits = useRequestData({}, `${url_details}${params.id}/credits?api_key=${api_key}&language=en-US`)
-
-    const crew = useRequestData({}, `${url_details}${params.id}/credits?api_key=${api_key}&language=en-US`).crew
-
-    const videos = useRequestData({}, `${url_details}${params.id}/videos?api_key=${api_key}&language=en-US`).results
-
-    const recommendations = useRequestData({}, `${url_details}${params.id}/recommendations?api_key=${api_key}&language=en-US&page=1`).results
-
-    // Render
     const minToHour = (movie) => {
         let runtimeFinal = []
         const minutes = movie.runtime
@@ -72,9 +63,22 @@ const DetailsPage = (props) => {
             return [finalHours, finalMinutes]
         }
     }
+
+    // Requests
+    const movie = useRequestData({}, `${url_details}${params.id}?api_key=${api_key}&language=en-US`)
+
+    const release = useRequestData([], `${url_details}${params.id}/release_dates?api_key=${api_key}`).results
+
+    const credits = useRequestData({}, `${url_details}${params.id}/credits?api_key=${api_key}&language=en-US`)
+
+    const crew = useRequestData({}, `${url_details}${params.id}/credits?api_key=${api_key}&language=en-US`).crew
+ 
+    const videos = useRequestData({}, `${url_details}${params.id}/videos?api_key=${api_key}&language=en-US`).results
+
+    const recommendations = useRequestData({}, `${url_details}${params.id}/recommendations?api_key=${api_key}&language=en-US&page=1`).results
+
+    // Render    
     const runtimeNew = movie && minToHour(movie)
-
-
 
     const genresMap = movie.genres && movie.genres.map((film) => {
         return (
@@ -93,6 +97,7 @@ const DetailsPage = (props) => {
                     pic={`${url_images}${actor.profile_path}`}
                     character={actor.character}
                     actor={actor.original_name}
+                    onClick={() => onClickCardCast(actor.id)}
                 />
             )
         })
@@ -173,7 +178,8 @@ const DetailsPage = (props) => {
                     <DivCrew>
                         <DivDirector>
                             <DivDirTitle>Director</DivDirTitle>
-                            <DivDir>{director && director[0].name}</DivDir>
+                            <DivDir>{(director && director.length !== 0) ? director[0].name : "No Info"}</DivDir>
+
                         </DivDirector>
                         <DivExec>
                             <DivDirTitle>Executive Producer</DivDirTitle>

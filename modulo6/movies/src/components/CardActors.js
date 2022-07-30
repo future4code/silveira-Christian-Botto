@@ -12,6 +12,11 @@ const MainContainer = styled.div`
   padding-left: 20px;
   padding-right: 20px;
   text-align: center;
+  cursor:pointer;
+  :hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  transform: scale(1.1); 
+}
 `
 const Poster = styled.img`
 width: 150x;
@@ -29,7 +34,7 @@ font-weight: 300;
 
 const CardActors= (props) => {
     return (
-        <MainContainer>
+        <MainContainer onClick ={props.onClick}>
             <Poster src={props.pic} />
             <h4>{props.actor}</h4>
             <H5>{props.character}</H5>
