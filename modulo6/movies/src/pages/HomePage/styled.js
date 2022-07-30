@@ -96,8 +96,8 @@ flex-direction: row;
 justify-content: start;
 flex-wrap: wrap;
 padding-top: 30px;
-padding-left:170px;
-padding-right:170px;
+padding-left:120px;
+padding-right:120px;
 row-gap: 30px;
 column-gap:40px;
 @media(max-width: 800px) {
