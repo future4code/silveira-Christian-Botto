@@ -1,8 +1,14 @@
 // React
 import React, { useState } from "react";
 
+// Routes
+import { useNavigate } from "react-router-dom";
+import {goToHistoryPage} from "../../router/coordinator"
+
 // Hooks
 import useForm from "../../hooks/useForm";
+import { useDispatch, useSelector } from "react-redux";
+import { addToHistory } from "../../redux/historySlice";
 
 // Requests
 import axios from "axios";
@@ -15,13 +21,21 @@ import { MainContainer } from "./styled";
 const SearchPage = () => {
 
     // States and Constants
+    const navigate = useNavigate()
+
     const { form, onChange, cleanFields } = useForm({
         user: ""
     });
     
-    const [user, setUser] = useState(form && form.user)
-    console.log(form && form.user)
-    console.log(user)
+    const [user, setUser] = useState(form && form.user)        
+
+    const {history} = useSelector(state => state.history)
+    const dispatch = useDispatch()
+    
+
+    console.log("input: ", form && form.user)
+    console.log("user: ",user)
+    console.log("history: ",history)
 
     // Requests
 
@@ -32,6 +46,7 @@ const SearchPage = () => {
         axios.get(url)
             .then((response) => {
                 setUser(response.data)  
+                dispatch(addToHistory(form.user))
                 cleanFields()  
             })
             .catch((error) => {
@@ -56,6 +71,7 @@ return (
             />
             <button>Search</button>
         </form>
+        <button onClick={() => goToHistoryPage(navigate)}>History Page</button>
         
         {user.name}
 

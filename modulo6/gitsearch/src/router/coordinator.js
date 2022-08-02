@@ -2,6 +2,6 @@ export const goToSearchPage = (navigate) => {
     navigate("/")
 }
 
-export const goToHistoryPage = (naavigate) => {
+export const goToHistoryPage = (navigate) => {
     navigate("/history")
 }
