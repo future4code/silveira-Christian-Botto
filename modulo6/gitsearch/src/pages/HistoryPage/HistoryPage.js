@@ -21,7 +21,7 @@ const HistoryPage = (props) => {
     const {history} = useSelector(state => state.history)
     const dispatch = useDispatch()
 
-    console.log("history: ",history)
+    // console.log("history: ",history)
 
     return (
         <MainContainer >

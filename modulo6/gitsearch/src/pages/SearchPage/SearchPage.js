@@ -7,12 +7,18 @@ import {goToHistoryPage} from "../../router/coordinator"
 
 // Hooks
 import useForm from "../../hooks/useForm";
+
+// Redux
 import { useDispatch, useSelector } from "react-redux";
 import { addToHistory } from "../../redux/historySlice";
+import { setModalTrue } from "../../redux/modalSlice";
 
 // Requests
 import axios from "axios";
 import { BASE_URL } from "../../constants/urls";
+
+// Modal
+import CardModal from "../../components/CardModal/CardModal";
 
 // Style
 import { MainContainer } from "./styled";
@@ -33,9 +39,10 @@ const SearchPage = () => {
     const dispatch = useDispatch()
     
 
-    console.log("input: ", form && form.user)
-    console.log("user: ",user)
-    console.log("history: ",history)
+    // console.log("input: ", form && form.user)
+    // console.log("user: ",user)
+    // console.log("history: ",history)
+
 
     // Requests
 
@@ -47,17 +54,13 @@ const SearchPage = () => {
             .then((response) => {
                 setUser(response.data)  
                 dispatch(addToHistory(form.user))
+                dispatch(setModalTrue())
                 cleanFields()  
             })
             .catch((error) => {
                 alert("Can't load data, refresh your browser")
             })
     }
-
-
-
-
-
 
 return (
     <MainContainer >
@@ -72,8 +75,16 @@ return (
             <button>Search</button>
         </form>
         <button onClick={() => goToHistoryPage(navigate)}>History Page</button>
+
         
-        {user.name}
+        <CardModal 
+        user = {user.name}
+        pic = {user.avatar_url}
+        bio = {user.bio}
+        email = {user.email}
+        login = {user.login}
+        />
+        
 
     </MainContainer >
 )

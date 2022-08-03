@@ -13,7 +13,7 @@ export const historySlice = createSlice({
       state.history.unshift(action.payload) 
     },
     removeFromHistory: (state, action) => {
-
+        state.filter(remove => remove !== action.payload);
     }
   },
 })
