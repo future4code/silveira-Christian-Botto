@@ -32,6 +32,7 @@ const customStyles = {
     right: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
+    height: "500px",
   },
 };
 
@@ -45,13 +46,14 @@ const CardModal = (props) => {
 
   //Requests
   const repos = useRequestData([], `${BASE_URL}${props.login}/repos`)
-  console.log(repos)
+  // console.log(repos)
 
   // Render
 
   const reposMap = repos && repos.map ((repo) => {
     return(
       <CardRepo
+      key = {repo.id}
       name = {repo.name}
       url = {repo.html_url}
       />
@@ -67,14 +69,13 @@ const CardModal = (props) => {
     >
       <Title>{props.user !== null ? props.user : "Not Informed"}</Title>
       <IMG src={props.pic} />
-      <div>I am a modal</div>
       <SubTitle>E-mail:</SubTitle>
       <DivText>{props.email !== null ? props.email : "Not Informed"}</DivText>
       <SubTitle>Bio:</SubTitle>
       <DivText>{props.bio !== null ? props.bio : "Not Informed"}</DivText>
       {/* <button onClick={() =>dispatch(setModalFalse())}>close</button> */}
-      <SubTitle>Repos:</SubTitle>
-      <div>{reposMap}oi</div>
+      <SubTitle>Repositories:</SubTitle>
+      <div>{reposMap}</div>
     </Modal>
 
   )
