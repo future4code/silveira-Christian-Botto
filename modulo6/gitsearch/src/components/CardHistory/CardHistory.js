@@ -1,10 +1,15 @@
 import { MainContainer, Button, DivName, DivButton } from "./styled"
 
 // Redux
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { setModalTrue } from "../../redux/modalSlice";
 import { removeFromHistory } from "../../redux/historySlice";
-import { setUserHist} from "../../redux/userSlice";
+import { setUser} from "../../redux/userSlice";
+
+
+// Requests
+import axios from "axios";
+import { BASE_URL } from "../../constants/urls";
 
 
 
@@ -15,8 +20,16 @@ const CardHistory = (props) => {
     const dispatch = useDispatch()
 
     const functions = (name) => {
-        dispatch(setUserHist(name))
-        dispatch(setModalTrue())
+        const url = (`${BASE_URL}${name}`)
+        axios.get(url)
+            .then((response) => {
+                dispatch(setUser(response.data))
+                dispatch(setModalTrue())
+            })
+            .catch((error) => {
+                console.log(error)
+                alert("Can't load data, refresh your browser")
+            })
     }
 
     return (
@@ -26,11 +39,11 @@ const CardHistory = (props) => {
             </DivName>
 
             <DivButton>
-             <Button onClick={() => functions(props.name)}>+</Button>
-            <Button onClick={() => dispatch(removeFromHistory(props.id))}>x</Button>
+                <Button onClick={() => functions(props.name)}>+</Button>
+                <Button onClick={() => dispatch(removeFromHistory(props.id))}>x</Button>
             </DivButton>
 
-            
+
 
         </MainContainer>
     )

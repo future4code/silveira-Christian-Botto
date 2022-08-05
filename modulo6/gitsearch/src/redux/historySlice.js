@@ -9,17 +9,15 @@ export const historySlice = createSlice({
   initialState,
   reducers: {
     addToHistory: (state, action) => {
-      const newHistory = [...state.history]
-      state.history= [ action.payload, ...newHistory]
-      // state.history.unshift(action.payload) // Another way that also works
+      const newHistory = [action.payload, ...state.history]
+      state.history= newHistory
     },
     updateHistory: (state, action) => {
       state.history= [ ...action.payload]
     },
-    removeFromHistory: (state, action) => {
-        // state.filter(remove => remove === action.payload);
-        const newHistory = state.filter(remove => remove !== action.payload);
-        state.history= [...newHistory]
+    removeFromHistory: (state, action) => {     
+        const newHistory = state.history.filter(user => user.id !== action.payload);
+        state.history= newHistory
     },
     cleanHistory: (state) => {
       const cleanHistory = ""

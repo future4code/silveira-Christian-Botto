@@ -28,6 +28,7 @@ import CardModal from "../../components/CardModal/CardModal";
 // Style
 import { MainContainer, SubMainContainer, DivTitle, DivForm, DivButton, Button, Form } from "./styled";
 
+
 // App
 const SearchPage = () => {
 
@@ -85,6 +86,7 @@ const SearchPage = () => {
             })
     }
  
+  
     return (
         <MainContainer >
             <SubMainContainer>

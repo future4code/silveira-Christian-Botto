@@ -3,7 +3,7 @@ import axios from 'axios'
 import { BASE_URL } from '../constants/urls'
 
 const initialState = {
-  user: []
+  user: {}
 }
 
 
@@ -20,10 +20,11 @@ export const userSlice = createSlice({
       axios.get(url)
       .then((response) => {
         newUser = response.data
-        // console.log(newUser)
-         state.user = [newUser]
+        console.log(newUser)
+         state.user = newUser
               })
       .catch((error) => {
+        console.log(error)
           alert("Can't load data, refresh your browser")
       })      
 }    

@@ -1,8 +1,8 @@
 <h1 align="center">
-     Github username searcher
+     Github User Searcher
 </h1>
 
-A study case for a legacy assignment [**assignment**](https://github.com/chamatheapp/chama-frontend-assignment/). 
+A study case for a legacy [**assignment**](https://github.com/chamatheapp/chama-frontend-assignment/). 
 
 
 ---
@@ -39,7 +39,7 @@ The logo for this project was made using [Hatchful](https://hatchful.shopify.com
 ---
 ## 🔗Link for the deployed website
 
-- **Surge:** Under construction
+- **Surge:** [Github User Searcher](https://github-user-searcher.surge.sh/)
 
 ---
 
@@ -51,7 +51,7 @@ The logo for this project was made using [Hatchful](https://hatchful.shopify.com
    * Requests using Axios
    * Styling using Styled-Components
    * Global state using Redux
-   * Hooks
+   * Hooks and Custom Hooks
 
 <!--te-->
 
@@ -59,27 +59,32 @@ The logo for this project was made using [Hatchful](https://hatchful.shopify.com
 ---
 ##  🧭Status 
 
- - ⌛ Under Construction
+ - ⌛ Done
  
 ---
 
 ##  🎯Objetive
 
-This is a Front-end project used as a study case to show my abilities in working with the technologies described in [Technologies](#Technologies).
+This is a Front-end project used as a study case to show my abilities working with the technologies described in [Technologies](#Technologies).
 
 ---
 
 ##  🔨Functionalities
  
-- [x] Under Construction;
+- [x] You can search any user on GitHub using a form;
+- [x] That search will generate a modal with general info about that user. It also shows their public repositories, which can be clicked onm to direct you to their respective pages;
+- [x] Clicking on "History Page", the user can see the history from all the past searches, which were stored as global state using **Redux**;
+- [x] The user can delete individual entries from history clicking on **x**;
+- [x] They can also load more information from past entries clicking on **+**;
+- [x] Finally, the user can delete the whole history altogether clicking on the respective button;
 
 
 
 ---
 
-## 💡Project Wireframe
+## 💡Project Wireframe/Fluxogram
 
-![Wireframe](/wireframe.png)
+![Fluxogram](/fluxogram.png)
 
 ---
 
@@ -92,6 +97,7 @@ To run this project, you should:
 
 - Clone this repo;
 - Run npm i;
+- Run npm start;
 - That's it :)
 
 
