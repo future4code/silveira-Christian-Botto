@@ -9,6 +9,9 @@ import { goToHistoryPage } from "../../router/coordinator"
 // Hooks
 import useForm from "../../hooks/useForm";
 
+// Assets
+import LOGO from "../../assets/logo.png"
+
 // Redux
 import { useDispatch, useSelector } from "react-redux";
 import { addToHistory, updateHistory } from "../../redux/historySlice";
@@ -23,7 +26,7 @@ import { BASE_URL } from "../../constants/urls";
 import CardModal from "../../components/CardModal/CardModal";
 
 // Style
-import { MainContainer } from "./styled";
+import { MainContainer, SubMainContainer, DivTitle, DivForm, DivButton, Button, Form } from "./styled";
 
 // App
 const SearchPage = () => {
@@ -51,11 +54,11 @@ const SearchPage = () => {
             window.sessionStorage.setItem("user", JSON.stringify(user))
         }
     }, [user]);
-    
+
     useEffect(() => {
         const history = window.sessionStorage.getItem("history")
         const user = window.sessionStorage.getItem("user")
-        if (history) {            
+        if (history) {
             const historyObj = JSON.parse(history)
             dispatch(updateHistory(historyObj))
         }
@@ -65,7 +68,6 @@ const SearchPage = () => {
         }
     }, []);
 
-    console.log(user)
 
     // Functions
     const onSubmitForm = (event) => {
@@ -74,7 +76,7 @@ const SearchPage = () => {
         axios.get(url)
             .then((response) => {
                 dispatch(setUser(response.data))
-                dispatch(addToHistory(form.user))
+                dispatch(addToHistory(response.data))
                 dispatch(setModalTrue())
                 cleanFields()
             })
@@ -82,31 +84,45 @@ const SearchPage = () => {
                 alert("Can't load data, refresh your browser")
             })
     }
-
+ 
     return (
         <MainContainer >
-            <form onSubmit={onSubmitForm}>
-                <input
-                    name={"user"}
-                    value={form.user}
-                    onChange={onChange}
-                    placeholder="User"
-                    required
+            <SubMainContainer>
+
+
+
+                <DivTitle> <img src={LOGO} /></DivTitle>
+
+                <DivForm>
+                    <Form onSubmit={onSubmitForm}>
+                        <input
+                            name={"user"}
+                            value={form.user}
+                            onChange={onChange}
+                            placeholder="User"
+                            required
+                        />
+                        <Button>Search</Button>
+                    </Form>
+                </DivForm>
+
+
+
+                <DivButton>
+                    <Button onClick={() => goToHistoryPage(navigate)}>History Page</Button>
+                </DivButton>
+
+
+
+                <CardModal
+                    user={user.name}
+                    pic={user.avatar_url}
+                    bio={user.bio}
+                    email={user.email}
+                    login={user.login}
                 />
-                <button>Search</button>
-            </form>
-            <button onClick={() => goToHistoryPage(navigate)}>History Page</button>
 
-
-            <CardModal
-                user={user.name}
-                pic={user.avatar_url}
-                bio={user.bio}
-                email={user.email}
-                login={user.login}
-            />
-
-
+            </SubMainContainer>
         </MainContainer >
     )
 }

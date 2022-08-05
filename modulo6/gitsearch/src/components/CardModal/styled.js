@@ -6,13 +6,14 @@ height:345px;
 `
 
 export const Title = styled.h2`
-color: green;
+color: #284646;
 `
 
 export const SubTitle = styled.h3`
-color: blue;
+color: #284646;
 `
 
 export const DivText = styled.div`
 `
-
+export const DivRepo =styled.div`
+`

@@ -10,6 +10,9 @@ import { goToSearchPage } from "../../router/coordinator"
 import { useDispatch, useSelector } from "react-redux";
 import { addToHistory, cleanHistory, removeFromHistory, updateHistory } from "../../redux/historySlice";
 
+// Assets
+import LOGO from "../../assets/logo3.png"
+
 // Components
 import CardHistory from "../../components/CardHistory/CardHistory";
 
@@ -17,13 +20,13 @@ import CardHistory from "../../components/CardHistory/CardHistory";
 import CardModal from "../../components/CardModal/CardModal";
 
 // Style
-import { MainContainer } from "./styled";
+import { MainContainer, SubMainContainer, DivTitle, DivForm, DivButton, Button, Form, DivHistory, P } from "./styled";
 import { setUser } from "../../redux/userSlice";
 
 // App
 const HistoryPage = (props) => {
 
-    
+
 
     // States and Constants
     const navigate = useNavigate()
@@ -31,10 +34,6 @@ const HistoryPage = (props) => {
     const { user } = useSelector(state => state.user)
     const { history } = useSelector(state => state.history)
     const dispatch = useDispatch()
-
-    // console.log(typeof(history))
-    console.log("history", history)
-    console.log("user", user)
 
     // UseEffect
     useEffect(() => {
@@ -48,11 +47,11 @@ const HistoryPage = (props) => {
             window.sessionStorage.setItem("user", JSON.stringify(user))
         }
     }, [user]);
-    
+
     useEffect(() => {
         const history = window.sessionStorage.getItem("history")
         const user = window.sessionStorage.getItem("user")
-        if (history) {            
+        if (history) {
             const historyObj = JSON.parse(history)
             dispatch(updateHistory(historyObj))
         }
@@ -67,28 +66,41 @@ const HistoryPage = (props) => {
     const historyMap = history && history.map((hist) => {
         return (
             <CardHistory
-                key={hist}
-                name={hist}
+                key={hist.id}
+                id = {hist.id}
+                name={hist.login}
             />
         )
     })
 
+    console.log(user)
     return (
         <MainContainer >
-            HistoryPage
-            <button onClick={() => goToSearchPage(navigate)}>Search Page</button>
-            <button onClick={() => dispatch(cleanHistory())}>Clean History</button>
+            <SubMainContainer>
+                <DivTitle> <img src={LOGO} /></DivTitle>
 
-            {historyMap}
+                {history && history.length !== 0 ? <DivHistory>
+                    {historyMap}
+                </DivHistory> : <P>"No history yet. Try Going back and use the search engine!"</P>}
 
-            <CardModal
-                user={user.name}
-                pic={user.avatar_url}
-                bio={user.bio}
-                email={user.email}
-                login={user.login}
-            />
 
+                <CardModal
+                    user={user.name}
+                    pic={user.avatar_url}
+                    bio={user.bio}
+                    email={user.email}
+                    login={user.login}
+                />
+
+                {history && history.length !== 0 ? <DivButton>
+                    <Button onClick={() => dispatch(cleanHistory())}>Clean ALL History</Button>
+                </DivButton> : ""}
+
+                <DivButton>
+                    <Button onClick={() => goToSearchPage(navigate)}>Search Page</Button>
+                </DivButton>
+
+            </SubMainContainer>
         </MainContainer >
     )
 }

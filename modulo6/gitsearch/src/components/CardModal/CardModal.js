@@ -18,7 +18,7 @@ import { BASE_URL } from '../../constants/urls';
 import CardRepo from '../CardRepo/CardRepo';
 
 // Styles
-import { IMG, Title, DivText, SubTitle } from './styled';
+import { IMG, Title, DivText, SubTitle, DivRepo } from './styled';
 
 
 
@@ -34,6 +34,9 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
     height: "500px",
   },
+  overlay: {
+    background: "rgb(94, 113, 106, 0.5)",
+  }
 };
 
 
@@ -46,7 +49,6 @@ const CardModal = (props) => {
 
   //Requests
   const repos = useRequestData([], `${BASE_URL}${props.login}/repos`)
-  // console.log(repos)
 
   // Render
 
@@ -75,7 +77,7 @@ const CardModal = (props) => {
       <DivText>{props.bio !== null ? props.bio : "Not Informed"}</DivText>
       {/* <button onClick={() =>dispatch(setModalFalse())}>close</button> */}
       <SubTitle>Repositories:</SubTitle>
-      <div>{reposMap}</div>
+      <DivRepo>{reposMap}</DivRepo>
     </Modal>
 
   )

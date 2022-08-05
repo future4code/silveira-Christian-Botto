@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  history: [],
+  history: "",
 }
 
 export const historySlice = createSlice({
@@ -15,14 +15,16 @@ export const historySlice = createSlice({
     },
     updateHistory: (state, action) => {
       state.history= [ ...action.payload]
-      // state.history.unshift(action.payload) // Another way that also works
     },
     removeFromHistory: (state, action) => {
-        state.filter(remove => remove !== action.payload);
+        // state.filter(remove => remove === action.payload);
+        const newHistory = state.filter(remove => remove !== action.payload);
+        state.history= [...newHistory]
     },
     cleanHistory: (state) => {
-      const cleanHistory = []
-      state.history= [ cleanHistory]
+      const cleanHistory = ""
+      state.history=  cleanHistory
+      window.sessionStorage.setItem("history", JSON.stringify(""))
   }
   },
 })

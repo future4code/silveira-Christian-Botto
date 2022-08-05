@@ -1,8 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
+import axios from 'axios'
+import { BASE_URL } from '../constants/urls'
 
 const initialState = {
   user: []
 }
+
 
 export const userSlice = createSlice({
   name: 'user',
@@ -10,10 +13,23 @@ export const userSlice = createSlice({
   reducers: {
     setUser: (state, action) => {
       state.user=  action.payload
-    }
+    },
+    setUserHist: (state, action) => {
+      let newUser 
+      const url = (`${BASE_URL}${action.payload}`)
+      axios.get(url)
+      .then((response) => {
+        newUser = response.data
+        // console.log(newUser)
+         state.user = [newUser]
+              })
+      .catch((error) => {
+          alert("Can't load data, refresh your browser")
+      })      
+}    
   },
 })
 
-export const {  setUser } = userSlice.actions
+export const {  setUser, setUserHist } = userSlice.actions
 
 export default userSlice.reducer

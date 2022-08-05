@@ -4,7 +4,7 @@ import { MainContainer } from "./styled"
 const CardRepo = (props) => {
     return(
         <MainContainer>
-            <a href={props.url} target="_blank" >{props.name}  </a>
+          &bull;  <a href={props.url} target="_blank" >{props.name}  </a>
         </MainContainer>
     )
 }
