@@ -19,8 +19,6 @@ function Router() {
             <Route path="login" element={<LoginPage />} />
             <Route path="signup" element={<SignUpPage />} />
 
-
-
             <Route path="details/:id" element={<DetailsPage />} />
 
             <Route path="cart" element={<CartPage />} />

@@ -5,18 +5,20 @@ import { MainContainer, IMG, BoxInfo, Info, Name } from "./styled"
 
 
 // App
-const CardRestaurants = ({ restaurant }) => {
+const CardDetails = ({ restaurant }) => {
     const navigate=useNavigate()
     return (
         <MainContainer onClick={()=> goToDetailsPage(navigate, restaurant.id)}>
             <IMG src={restaurant.logoUrl} />
             <Name> {restaurant.name}</Name>
+            <Info>{restaurant.category}</Info>
             <BoxInfo>
                 <Info>{restaurant.deliveryTime}</Info>
                 <Info>{restaurant.shipping}</Info>
             </BoxInfo>
+            {restaurant.address}
         </MainContainer>
     )
 }
 
-export default CardRestaurants
+export default CardDetails

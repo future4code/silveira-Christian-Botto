@@ -87,7 +87,11 @@ This is a mobile-first Front-end project using an educational API to create a Fo
    * You can use the input box to search for a restaurant by name and the list of restaurants displayed will be updating live as you type down;
    * Below the input box, there is scrollable cuisine box, where you can search restaurants by their respective cuisine (they are in portuguese). The selected cuisine will change its color to red;
    * Both filters work together, so you can search restaurants by cuisine and also by name;
-   * ;
+   * When you click on a restaurant card, you'll be taken to the Restaurant Details Card;
+
+ #Restaurant Details Page
+   * A list of all of the products avaoilable at that restaurant will be rendered, sorted by type of food (Pizza, Appetizer, Beverage, etc - names in Portuguese).  
+   * Each product card has some info about it, including its price and how long it'll tae to get it to you (those are fixed values). There is also a button to add it to the cart. 
 
  #Log in Page
    * You can go to the Sign up Page from here if you are not registered yet;

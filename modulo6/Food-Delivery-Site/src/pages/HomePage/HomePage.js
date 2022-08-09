@@ -24,7 +24,7 @@ const HomePage = () => {
     const [categories, setCategories] = useState([])
     const [valueCategories, setValueCategories] = useState("")
 
-    console.log(categories)
+
 
     // Use Effect
     useEffect(() => {
