@@ -68,6 +68,10 @@ This is a mobile-first Front-end project using an educational API to create a Fo
 
 ##  🔨Functionalities
 
+#Navigation
+   * You can navigate using the footer menu. The icon glows red depending on which page you are;
+   * YThere is also a header that lets you go back to the previous page in some of the pages.
+
 #Sign up Page
    * You can go to the Log in Page from here if you are already registered;
    * A custom hook form is used here;
@@ -88,18 +92,40 @@ This is a mobile-first Front-end project using an educational API to create a Fo
    * Below the input box, there is scrollable cuisine box, where you can search restaurants by their respective cuisine (they are in portuguese). The selected cuisine will change its color to red;
    * Both filters work together, so you can search restaurants by cuisine and also by name;
    * When you click on a restaurant card, you'll be taken to the Restaurant Details Card;
+   * When you place an order (more on that later), and active pop up will be shown on the homepage saying the restaurant name, the total and delivery time. This pop up will disappear once the delivery time has passed by in real time (i.e. if when placing an order you were told it'd take 40min, the pop up will last for 40min after the order is placed).
 
  #Restaurant Details Page
-   * A list of all of the products avaoilable at that restaurant will be rendered, sorted by type of food (Pizza, Appetizer, Beverage, etc - names in Portuguese).  
-   * Each product card has some info about it, including its price and how long it'll tae to get it to you (those are fixed values). There is also a button to add it to the cart. 
+   * A list of all of the products avaoilable at that restaurant will be rendered, sorted by type of food (Pizza, Appetizer, Beverage, etc - names in Portuguese). ;
+   * Each product card has some info about it, including its price and how long it'll tae to get it to you (those are fixed values). There is also a button to add it to the cart;
+   * Clicking on the "add to cart button", a modal shows up and it lets you choose how many of that item you want to add to the cart button; The modal closes automatically after you choose a quantity and press "add to cart". 
+   * After adding a product to cart, the "add to cart" button changes to "remove" and changes the card to show the quantity chosen at the top right.  
+   * You can only order from one restaurant at a time (more on that later). So you can ad how many products of the same restaurant as you want, but if you go to another restaurant page and add a product from that new restaurant, your cart (saved in a Redux Global State) will be reset and that new item will be added. In other words, your cart can have as many products as you want, but all must have the same restaurant ID.
+
+   #Cart Page
+   * The cart page changes dynamically as you fill your cart. It shows the restaurant name, address and delivery time to your home (this info is fixed for every restaurant). It also renders a list of each product with its quantity, ans also calculates the total, including the delivery fee. It also shows your address (this info is always present).
+   * You can remove products from the cart;
+   * You can select one of two payment methods (cash or credit card). If you don't, you'll get an error message;
+   * The API calculates the shipping time in real time. That means that once you have placed an order, you can't place another one until the shipping time has passaed (For example: If you placed an order in a restaurant with a 30 min shipping time, you have to wait 30 minutes after you place an order to place another one).;
 
  #Log in Page
    * You can go to the Sign up Page from here if you are not registered yet;
    * A custom hook form is used here;
    * You can hide and unhide the password clicking on the "eye button";
    * Using Material's built-in regex, passwords are tested to be at least 6 characters long;
-   * After a successfull login, you are redirected to the Homepage;
+   * After a successfull login, you are redirected to the Homepage.
 
+ #Profile Page
+   * You can see and edit your personal info and your address info;
+   * You can also see the history of past orders, including any ongoing one. The date format is 'DD/MM/YYYY';
+   * Finally, you can log out from your account here. You'll be redirected to the Log in Page.
+
+    #Edit Profile Page
+   * The current info you have saved is displayed as placeholders;
+   * You can freely edit your personal info here;
+
+    #Edit Address Page
+   * The current info you have saved is displayed as placeholders;
+   * You can freely edit your address info here;
 
 
 

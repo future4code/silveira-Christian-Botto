@@ -11,12 +11,21 @@ import { useProtectedPage } from "../../hooks/useProtectedPage";
 // Components
 import CardRestaurants from "../../components/CardRestaurants/CardRestaurants";
 import Header from "../../components/Header/Header";
+import Menu from "../../components/Menu/Menu";
+import Order from "../../components/Order/Order"
+
+// Redux
+import { useDispatch, useSelector } from "react-redux";
+import { setOrder } from "../../redux/orderSlice";
 
 // Styles
-import { MainContainer, CardRest, Input, Menu, MenuItem } from "./styled";
+import { MainContainer, CardRest, Input, DivMenu, MenuItem } from "./styled";
 
 // App
 const HomePage = () => {
+
+    // Hooks
+    useProtectedPage()
 
     // States and Constants
     const [restaurants, setRestaurants] = useState()
@@ -24,12 +33,9 @@ const HomePage = () => {
     const [categories, setCategories] = useState([])
     const [valueCategories, setValueCategories] = useState("")
 
-
-
-    // Use Effect
-    useEffect(() => {
-        getRestaurants()
-    }, [])
+    const { order } = useSelector(state => state.order)
+    const dispatch = useDispatch()
+    
 
     //Functions
     const getRestaurants = () => {
@@ -44,8 +50,6 @@ const HomePage = () => {
                 categoryFilter(response.data.restaurants)
             })
             .catch((error) => {
-                alert("Error")
-                console.log(error)
             })
     }
 
@@ -85,9 +89,37 @@ const HomePage = () => {
         setCategories(result)
     }
 
+    const getOrder = () => {
+        const url = `${BASE_URL}active-order`
+        const token = localStorage.getItem('token')
+        axios
+            .get(url, {
+                headers: { auth: token }
+            })
+            .then((response) => {
+                dispatch(setOrder(response.data.order))
+                const expiresAt = response.data.order.expiresAt
 
-    // Hooks
-    useProtectedPage()
+                setTimeout(() => {
+                    getOrder()
+                }, expiresAt - new Date().getTime())
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+
+    // Use Effect
+    useEffect(() => {
+        getRestaurants()
+    }, [])
+
+    useEffect(() => {
+        getOrder()
+    }, [])
+
+
+    
 
     // Render
     const restaurantMap = restaurants && restaurants
@@ -119,7 +151,7 @@ const HomePage = () => {
                     value={inputText}
                     onChange={(event) => setInputText(event.target.value)}
                 />
-                <Menu>
+                <DivMenu>
                     <MenuItem
                         onClick={() => setValueCategories("")}
                     >
@@ -135,9 +167,11 @@ const HomePage = () => {
                         </MenuItem>
                     })}
 
-                </Menu>
+                </DivMenu>
                 {restaurantMap}
             </CardRest>
+            {order && <Order restaurantName={order.restaurantName} total = {order.totalPrice} />}
+            <Menu page={"home"} />
         </MainContainer>
     )
 }

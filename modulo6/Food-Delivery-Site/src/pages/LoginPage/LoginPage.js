@@ -7,11 +7,11 @@ import { BASE_URL } from "../../constants/urls";
 
 // Router
 import { useNavigate } from "react-router-dom";
-import { goToHomePage } from "../../router/coordinator"
+import { goToHomePage, goToSignUpPage } from "../../router/coordinator"
 
 // Styles
 import { MainContainer, Form, ButtonStyled, DivPass, TextFieldStyled } from "./styled";
-import { IconButton } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 
@@ -96,6 +96,7 @@ const LoginPage = () => {
                 </DivPass>
                 <ButtonStyled type='submit'>Log in</ButtonStyled>
             </Form>
+            <Button onClick={() => goToSignUpPage(navigate)}>Don't have an account yet? Sign up!</Button>
         </MainContainer>
     )
 }

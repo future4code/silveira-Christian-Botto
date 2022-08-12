@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 
 // Hooks
 import { useParams } from "react-router-dom";
+import { useProtectedPage } from "../../hooks/useProtectedPage";
 
 // Axios
 import axios from "axios";
@@ -11,20 +12,33 @@ import { BASE_URL } from "../../constants/urls";
 // Components
 import CardDetails from "../../components/CardDetails/CardDetails";
 import CardProduct from "../../components/CardProduct/CardProduct";
+import Header from "../../components/Header/Header";
+
+// Redux
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../redux/cartSlice";
 
 // Styles
 import { MainContainer, CardRest, BoxCategory, Category } from "./styled";
+
+
 
 
 // App
 
 const DetailsPage = () => {
 
+    // Hooks
+    useProtectedPage()
+
     // States and Constants
     const params = useParams()
     const restaurantID = params.id
     const [restaurant, setRestaurant] = useState({})
     const [categories, setCategories] = useState([])
+
+    const { cart } = useSelector(state => state.cart)
+    const dispatch = useDispatch()
 
     // Functions
     const getRestaurant = () => {
@@ -75,8 +89,9 @@ const DetailsPage = () => {
 
     return (
         <MainContainer>
+            <Header title={"iFuture"}  back/>
             <CardRest>
-                <CardDetails restaurant={restaurant} />
+                <CardDetails restaurant={restaurant}/>
                 {
                     restaurant.products
                     &&
@@ -93,6 +108,8 @@ const DetailsPage = () => {
                                         <CardProduct
                                             key={product.id}
                                             product={product}
+                                            addToCart = {addToCart}
+                                            rest={restaurant}
                                         />
                                     )
                                 })

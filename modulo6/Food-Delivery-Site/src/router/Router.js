@@ -25,8 +25,8 @@ function Router() {
 
             <Route path="register" element={<RegisterPage />} />
             <Route path="profile" element={<ProfilePage />} />
-            <Route path="edit-profile" element={<EditProfilePage />} />
-            <Route path="edit-address" element={<EditAddressPage />} />
+            <Route path="/profile/edit-profile/:id" element={<EditProfilePage />} />
+            <Route path="/profile/edit-address/:id" element={<EditAddressPage />} />
 
             <Route path="*" element={<ErrorPage />} />
         </Routes>

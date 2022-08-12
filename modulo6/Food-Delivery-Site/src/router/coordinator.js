@@ -22,14 +22,18 @@ export const goToCartPage = (navigate) => {
     navigate(`/cart`)
 }
 
-export const goToEditProfilePage= (navigate) => {
-    navigate("/edit-profile")
+export const goToEditProfilePage= (navigate, id) => {
+    navigate(`/profile/edit-profile/${id}`)
 }
 
-export const goToEditAddressPage = (navigate) => {
-    navigate("/edit-address")
+export const goToEditAddressPage = (navigate, id) => {
+    navigate(`/profile/edit-address/${id}`)
 }
 
 export const goToRegisterPage = (navigate) => {
     navigate("/register")
+}
+
+export const goBack = (navigate) => {
+    navigate(-1)
 }

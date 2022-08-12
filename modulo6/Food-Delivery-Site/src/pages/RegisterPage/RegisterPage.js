@@ -3,6 +3,7 @@ import React from "react";
 
 // Hooks
 import { useForm } from "../../hooks/useForm";
+import { useProtectedPage } from "../../hooks/useProtectedPage";
 
 // Axios
 import axios from "axios";
@@ -13,9 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { goToHomePage } from "../../router/coordinator"
 
 // Styles
-import { MainContainer, Form, ButtonStyled, DivPass, TextFieldStyled } from "./styled";
-import { IconButton } from "@mui/material";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { MainContainer, Form, ButtonStyled,  TextFieldStyled } from "./styled";
 
 // App
 const RegisterPage = () => {
@@ -31,6 +30,9 @@ const RegisterPage = () => {
     })
 
     const navigate = useNavigate()
+
+    // Hooks
+    useProtectedPage()
 
 
     //Functions

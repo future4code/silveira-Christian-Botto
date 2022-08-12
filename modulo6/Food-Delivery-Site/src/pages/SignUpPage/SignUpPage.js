@@ -12,10 +12,14 @@ import { BASE_URL } from "../../constants/urls";
 import { useNavigate } from "react-router-dom";
 import { goToRegisterPage } from "../../router/coordinator"
 
+// Components
+import Header from "../../components/Header/Header";
+
 // Styles
 import { MainContainer, Form, ButtonStyled, DivPass, TextFieldStyled } from "./styled";
 import { IconButton } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+
 
 // App
 
@@ -61,6 +65,8 @@ const SignUpPage = () => {
 
     return (
         <MainContainer>
+            <Header  back/>
+
             <p>Sign up</p>
 
             <Form onSubmit={onSubmitForm}>
