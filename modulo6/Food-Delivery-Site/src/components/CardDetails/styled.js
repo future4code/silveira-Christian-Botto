@@ -14,7 +14,6 @@ border-radius: 7px 7px 0 0;
 `
 
 export const Name = styled.h3`
-font-family: Roboto;
 font-size: 1rem;
 font-weight: normal;
 font-stretch: normal;
@@ -33,7 +32,6 @@ flex-grow: 1;
 `
 
 export const Info = styled.p`
-font-family: Roboto;
 font-size: 1rem;
 font-weight: normal;
 font-stretch: normal;

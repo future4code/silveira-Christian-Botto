@@ -13,7 +13,6 @@ export const BoxCategory = styled.div`
 padding-bottom: 1rem;
 `
 export const Category = styled.div`
-font-family: Roboto;
 font-size: 1rem;
 font-weight: normal;
 font-stretch: normal;

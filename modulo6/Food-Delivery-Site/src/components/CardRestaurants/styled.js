@@ -30,7 +30,6 @@ padding: 1rem 1rem 0 1rem;
 `
 
 export const Info = styled.p`
-font-family: Roboto;
 font-size: 1rem;
 font-weight: normal;
 font-stretch: normal;

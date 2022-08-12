@@ -12,8 +12,8 @@ const CardRestaurants = ({ restaurant }) => {
             <IMG src={restaurant.logoUrl} />
             <Name> {restaurant.name}</Name>
             <BoxInfo>
-                <Info>{restaurant.deliveryTime}</Info>
-                <Info>{restaurant.shipping}</Info>
+                <Info>Delivery time: {restaurant.deliveryTime} min</Info>
+                <Info>Delivery fee: $ {restaurant.shipping}</Info>
             </BoxInfo>
         </MainContainer>
     )

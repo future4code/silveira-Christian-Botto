@@ -30,7 +30,6 @@ overflow-x: auto;
 `
 
 export const MenuItem = styled.button`
-  font-family: Roboto;
   font-size: 1rem;
   font-weight: normal;
   font-stretch: normal;

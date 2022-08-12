@@ -32,7 +32,6 @@ border-radius: 8px 0 8px 0;
 color: ${mainColor};
 `
 export const Name = styled.h3`
-font-family: Roboto;
 font-size: 1rem;
 font-weight: normal;
 font-stretch: normal;
@@ -54,7 +53,6 @@ padding: 0 0 0 1rem;
 flex-grow: 1;
 `
 export const Info = styled.p`
-font-family: Roboto;
 font-size: 1rem;
 font-weight: normal;
 font-stretch: normal;

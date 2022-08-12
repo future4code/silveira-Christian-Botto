@@ -13,8 +13,8 @@ const CardDetails = ({ restaurant }) => {
             <Name> {restaurant.name}</Name>
             <Info>{restaurant.category}</Info>
             <BoxInfo>
-                <Info>{restaurant.deliveryTime}</Info>
-                <Info>{restaurant.shipping}</Info>
+                <Info>Delivery time: {restaurant.deliveryTime} min</Info>
+                <Info>Delivery fee: $ {restaurant.shipping}</Info>
             </BoxInfo>
             {restaurant.address}
         </MainContainer>
