@@ -38,7 +38,7 @@ This project is an elaborate Food Delivery site (mobile first). It has many real
 ---
 ## 🔗Link for the deployed website
 
-- **Surge:** [Food Delivery - This is a mobile first project](https://tmdb-project-christian-penna-botto.surge.sh/) 
+- **Surge:** [Food Delivery - This is a mobile first project](https://food-delivery-christian-penna-botto.surge.sh/) 
 
 ---
 
